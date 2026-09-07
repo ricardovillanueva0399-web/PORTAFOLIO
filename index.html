@@ -19,10 +19,11 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="nav-links" id="navLinks">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact" class="nav-cta">Contact</a>
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#contact" class="nav-cta" data-i18n="nav.contact">Contact</a>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">ES</button>
     </nav>
   </div>
 </header>
@@ -31,65 +32,65 @@
 
   <section class="hero">
     <div class="wrap hero-inner">
-      <p class="eyebrow">Portfolio</p>
+      <p class="eyebrow" data-i18n="hero.eyebrow">Portfolio</p>
       <h1>Ricardo Villanueva Valdez</h1>
       <div class="tags">
-        <span class="tag tag--navy">Graphic Design</span>
-        <span class="tag tag--green">Photography &amp; Video</span>
-        <span class="tag tag--lime">UX / UI</span>
+        <span class="tag tag--navy" data-i18n="hero.tag1">Graphic Design</span>
+        <span class="tag tag--green" data-i18n="hero.tag2">Photography &amp; Video</span>
+        <span class="tag tag--lime" data-i18n="hero.tag3">UX / UI</span>
       </div>
-      <p class="hero-sub">Chihuahua, México — I design brands, shoot and edit visual content, and build interfaces that hold together end to end.</p>
+      <p class="hero-sub" data-i18n="hero.sub">Chihuahua, México — I design brands, shoot and edit visual content, and build interfaces that hold together end to end.</p>
       <div class="hero-actions">
-        <a href="#work" class="btn btn-primary">See the work</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        <a href="#work" class="btn btn-primary" data-i18n="hero.cta1">See the work</a>
+        <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta2">Get in touch</a>
       </div>
     </div>
   </section>
 
   <section id="work" class="section">
     <div class="wrap">
-      <h2 class="section-title">Work</h2>
-      <p class="section-sub">A quick tour across the five areas I move between. Swap the placeholder blocks below for real project shots whenever you're ready.</p>
+      <h2 class="section-title" data-i18n="work.title">Work</h2>
+      <p class="section-sub" data-i18n="work.sub">A quick tour across the five areas I move between. Swap the placeholder blocks below for real project shots whenever you're ready.</p>
 
       <div class="grid grid-work">
         <article class="card card--navy" data-cat="Graphic Design">
           <div class="card-media" aria-hidden="true">
             <span class="card-icon">Ai</span>
           </div>
-          <h3>Graphic Design</h3>
-          <p>Product/promo graphics, packaging, editorial layouts and brand systems — Illustrator, Photoshop, InDesign.</p>
+          <h3 data-i18n="work.card1.title">Graphic Design</h3>
+          <p data-i18n="work.card1.desc">Product/promo graphics, packaging, editorial layouts and brand systems — Illustrator, Photoshop, InDesign.</p>
         </article>
 
         <article class="card card--green" data-cat="Photography">
           <div class="card-media" aria-hidden="true">
             <span class="card-icon">Ps</span>
           </div>
-          <h3>Photography</h3>
-          <p>Product, lifestyle and event photography with full retouching — Photoshop, Lightroom.</p>
+          <h3 data-i18n="work.card2.title">Photography</h3>
+          <p data-i18n="work.card2.desc">Product, lifestyle and event photography with full retouching — Photoshop, Lightroom.</p>
         </article>
 
         <article class="card card--blue" data-cat="Video">
           <div class="card-media" aria-hidden="true">
             <span class="card-icon">Pr</span>
           </div>
-          <h3>Video</h3>
-          <p>Scriptwriting, shooting and editing for social and campaign content — Premiere, After Effects, DaVinci Resolve.</p>
+          <h3 data-i18n="work.card3.title">Video</h3>
+          <p data-i18n="work.card3.desc">Scriptwriting, shooting and editing for social and campaign content — Premiere, After Effects, DaVinci Resolve.</p>
         </article>
 
         <article class="card card--lightgreen" data-cat="UX/UI">
           <div class="card-media" aria-hidden="true">
             <span class="card-icon">Fi</span>
           </div>
-          <h3>UX / UI</h3>
-          <p>E-commerce catalog UI, storefront design and layout systems — Figma, Dreamweaver.</p>
+          <h3 data-i18n="work.card4.title">UX / UI</h3>
+          <p data-i18n="work.card4.desc">E-commerce catalog UI, storefront design and layout systems — Figma, Dreamweaver.</p>
         </article>
 
         <article class="card card--yellow" data-cat="Academia">
           <div class="card-media" aria-hidden="true">
             <span class="card-icon">Ai</span>
           </div>
-          <h3>Academia</h3>
-          <p>Curriculum design and technical instruction in digital design and 3D garment rendering.</p>
+          <h3 data-i18n="work.card5.title">Academia</h3>
+          <p data-i18n="work.card5.desc">Curriculum design and technical instruction in digital design and 3D garment rendering.</p>
         </article>
       </div>
     </div>
@@ -97,50 +98,50 @@
 
   <section id="about" class="section section--alt">
     <div class="wrap">
-      <h2 class="section-title">Experience</h2>
+      <h2 class="section-title" data-i18n="about.title">Experience</h2>
 
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-date">2024 — Present</div>
+          <div class="timeline-date" data-i18n="exp1.date">2024 — Present</div>
           <div class="timeline-body">
-            <h3>Fashion Design Instructor</h3>
+            <h3 data-i18n="exp1.role">Fashion Design Instructor</h3>
             <p class="timeline-org">Universidad Durango · Chihuahua, MX</p>
-            <p>Teach practical classes in Photoshop, Illustrator and CLO3D applied to fashion design. Create educational materials in digital illustration and 3D garment rendering, and train students on industry-standard tools and digital textile design.</p>
+            <p data-i18n="exp1.desc">Teach practical classes in Photoshop, Illustrator and CLO3D applied to fashion design. Create educational materials in digital illustration and 3D garment rendering, and train students on industry-standard tools and digital textile design.</p>
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-date">2023 — 2025</div>
           <div class="timeline-body">
-            <h3>Marketing and Social Media Manager</h3>
+            <h3 data-i18n="exp2.role">Marketing and Social Media Manager</h3>
             <p class="timeline-org">DHM Tools · Chihuahua, MX</p>
-            <p>Developed and ran digital marketing strategy and social community management. Produced graphic and audiovisual content aligned to brand identity, managed the Shopify e-commerce channel, created corporate mascot illustrations, laid out the 20th-anniversary book, and maintained the company's visual identity.</p>
+            <p data-i18n="exp2.desc">Developed and ran digital marketing strategy and social community management. Produced graphic and audiovisual content aligned to brand identity, managed the Shopify e-commerce channel, created corporate mascot illustrations, laid out the 20th-anniversary book, and maintained the company's visual identity.</p>
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-date">2022 — 2023</div>
           <div class="timeline-body">
-            <h3>Graphic and Marketing Designer</h3>
+            <h3 data-i18n="exp3.role">Graphic and Marketing Designer</h3>
             <p class="timeline-org">Grupo Ragonia · Chihuahua, MX</p>
-            <p>Coordinated commercial product and lifestyle photography for Calma Home, Venecia Beauty Shop, ZenSano and Practicubos. Handled scriptwriting and video editing for digital campaigns, editorial menu design in InDesign with a custom dietary-icon system, and outdoor advertising/branding across multiple brands.</p>
+            <p data-i18n="exp3.desc">Coordinated commercial product and lifestyle photography for Calma Home, Venecia Beauty Shop, ZenSano and Practicubos. Handled scriptwriting and video editing for digital campaigns, editorial menu design in InDesign with a custom dietary-icon system, and outdoor advertising/branding across multiple brands.</p>
           </div>
         </div>
       </div>
 
       <div class="highlight-box">
-        <h3>Marketing highlight</h3>
-        <p>Directed digital strategy for an e-commerce catalog of 2,000+ products, using Google Ads and Search Console to optimize reach, and Meta and Shopify analytics to segment audiences — while owning full brand management from identity design to editorial art direction.</p>
+        <h3 data-i18n="highlight.title">Marketing highlight</h3>
+        <p data-i18n="highlight.desc">Directed digital strategy for an e-commerce catalog of 2,000+ products, using Google Ads and Search Console to optimize reach, and Meta and Shopify analytics to segment audiences — while owning full brand management from identity design to editorial art direction.</p>
       </div>
     </div>
   </section>
 
   <section id="skills" class="section">
     <div class="wrap">
-      <h2 class="section-title">Skills &amp; Tools</h2>
+      <h2 class="section-title" data-i18n="skills.title">Skills &amp; Tools</h2>
       <div class="skills-grid">
         <div class="skill-group">
-          <h3>Design</h3>
+          <h3 data-i18n="skills.group1">Design</h3>
           <ul>
             <li>Photoshop</li>
             <li>Illustrator</li>
@@ -149,7 +150,7 @@
           </ul>
         </div>
         <div class="skill-group">
-          <h3>Photo &amp; Video</h3>
+          <h3 data-i18n="skills.group2">Photo &amp; Video</h3>
           <ul>
             <li>Lightroom</li>
             <li>Premiere Pro</li>
@@ -158,14 +159,14 @@
           </ul>
         </div>
         <div class="skill-group">
-          <h3>UX / UI</h3>
+          <h3 data-i18n="skills.group3">UX / UI</h3>
           <ul>
             <li>Figma</li>
             <li>Dreamweaver</li>
           </ul>
         </div>
         <div class="skill-group">
-          <h3>Marketing</h3>
+          <h3 data-i18n="skills.group4">Marketing</h3>
           <ul>
             <li>Google Ads</li>
             <li>Search Console</li>
@@ -179,8 +180,8 @@
 
   <section id="contact" class="section section--dark">
     <div class="wrap contact-inner">
-      <h2 class="section-title">Let's work together</h2>
-      <p class="section-sub">Open to freelance, collaborations and full-time roles across design, photo/video and UX/UI.</p>
+      <h2 class="section-title" data-i18n="contact.title">Let's work together</h2>
+      <p class="section-sub" data-i18n="contact.sub">Open to freelance, collaborations and full-time roles across design, photo/video and UX/UI.</p>
       <a class="btn btn-primary" href="mailto:ricardovillanueva0399@gmail.com">ricardovillanueva0399@gmail.com</a>
       <div class="social">
         <a href="#" target="_blank" rel="noopener">Instagram</a>
@@ -194,7 +195,7 @@
 
 <footer class="footer">
   <div class="wrap">
-    <p>&copy; <span id="year"></span> Ricardo Villanueva Valdez. Built with plain HTML/CSS/JS.</p>
+    <p>&copy; <span id="year"></span> Ricardo Villanueva Valdez. <span data-i18n="footer.built">Built with plain HTML/CSS/JS.</span></p>
   </div>
 </footer>
 
