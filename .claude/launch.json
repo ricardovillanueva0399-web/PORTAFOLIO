@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio-static",
+      "runtimeExecutable": "powershell.exe",
+      "runtimeArgs": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "D:\\Nueva carpeta\\PERSONAL\\PORTAFOLIO\\scripts\\serve.ps1"
+      ],
+      "port": 8085
+    }
+  ]
+}
