@@ -286,3 +286,79 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   revealTargets.forEach(el => revealObserver.observe(el));
 }
+
+// Project gallery lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = lightbox.querySelector('.lightbox-image');
+const lightboxCaptionTitle = lightbox.querySelector('.lightbox-caption-title');
+const lightboxCount = lightbox.querySelector('.lightbox-count');
+const lightboxStrip = lightbox.querySelector('.lightbox-strip');
+const lightboxPrev = lightbox.querySelector('[data-lightbox-prev]');
+const lightboxNext = lightbox.querySelector('[data-lightbox-next]');
+
+let galleryImages = [];
+let galleryIndex = 0;
+let lightboxLastFocused = null;
+
+function renderLightbox() {
+  const total = galleryImages.length;
+  lightboxImage.src = galleryImages[galleryIndex];
+  lightboxCount.textContent = total > 1 ? `${galleryIndex + 1} / ${total}` : '';
+  const showNav = total > 1;
+  lightboxPrev.hidden = !showNav;
+  lightboxNext.hidden = !showNav;
+  lightboxStrip.hidden = !showNav;
+  lightboxStrip.querySelectorAll('img').forEach((img, i) => {
+    img.classList.toggle('active', i === galleryIndex);
+  });
+}
+
+function openLightbox(images, caption) {
+  galleryImages = images;
+  galleryIndex = 0;
+  lightboxCaptionTitle.textContent = caption || '';
+  lightboxStrip.innerHTML = '';
+  images.forEach((src, i) => {
+    const thumb = document.createElement('img');
+    thumb.src = src;
+    thumb.alt = '';
+    thumb.addEventListener('click', () => { galleryIndex = i; renderLightbox(); });
+    lightboxStrip.appendChild(thumb);
+  });
+  renderLightbox();
+  lightboxLastFocused = document.activeElement;
+  lightbox.hidden = false;
+  document.body.classList.add('lightbox-open');
+  lightbox.querySelector('.lightbox-close').focus();
+}
+
+function closeLightbox() {
+  lightbox.hidden = true;
+  document.body.classList.remove('lightbox-open');
+  lightboxImage.src = '';
+  if (lightboxLastFocused) lightboxLastFocused.focus();
+}
+
+document.querySelectorAll('[data-gallery]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const images = JSON.parse(btn.getAttribute('data-gallery'));
+    openLightbox(images, btn.getAttribute('data-gallery-caption'));
+  });
+});
+
+lightbox.querySelectorAll('[data-lightbox-close]').forEach(el => el.addEventListener('click', closeLightbox));
+lightboxPrev.addEventListener('click', () => {
+  galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+  renderLightbox();
+});
+lightboxNext.addEventListener('click', () => {
+  galleryIndex = (galleryIndex + 1) % galleryImages.length;
+  renderLightbox();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (lightbox.hidden) return;
+  if (e.key === 'Escape') closeLightbox();
+  else if (e.key === 'ArrowLeft') lightboxPrev.click();
+  else if (e.key === 'ArrowRight') lightboxNext.click();
+});
