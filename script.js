@@ -248,3 +248,41 @@ navLinks.querySelectorAll('a').forEach(link => {
     navToggle.setAttribute('aria-expanded', 'false');
   });
 });
+
+// Nav shadow on scroll
+const navEl = document.getElementById('nav');
+let lastScrollState = false;
+function syncNavShadow() {
+  const scrolled = window.scrollY > 8;
+  if (scrolled !== lastScrollState) {
+    navEl.classList.toggle('nav--scrolled', scrolled);
+    lastScrollState = scrolled;
+  }
+}
+syncNavShadow();
+window.addEventListener('scroll', syncNavShadow, { passive: true });
+
+// Scroll-reveal animations
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+['.grid-work', '.grid-projects', '.grid-videos', '.skills-grid', '.timeline'].forEach(sel => {
+  const el = document.querySelector(sel);
+  if (el) el.classList.add('reveal-group');
+});
+const revealTargets = document.querySelectorAll(
+  '.card, .project, .video-card, .skill-group, .timeline-item, .highlight-box, .section-title'
+);
+revealTargets.forEach(el => el.classList.add('reveal'));
+
+if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+  revealTargets.forEach(el => el.classList.add('is-visible'));
+} else {
+  const revealObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  revealTargets.forEach(el => revealObserver.observe(el));
+}
