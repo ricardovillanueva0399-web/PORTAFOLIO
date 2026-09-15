@@ -9,7 +9,7 @@
         "-ExecutionPolicy",
         "Bypass",
         "-File",
-        "D:\\Nueva carpeta\\PERSONAL\\PORTAFOLIO\\scripts\\serve.ps1"
+        "D:\\GitHub\\PORTAFOLIO\\scripts\\serve.ps1"
       ],
       "port": 8085
     }
