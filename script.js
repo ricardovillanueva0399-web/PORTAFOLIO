@@ -62,18 +62,14 @@ const translations = {
     'video.watchYoutube': 'Watch on YouTube',
     'projects.teckel.title': 'Teckel Estudio — Brand Identity',
     'projects.teckel.desc': 'Visual identity and brand banner design for a creative photo, video and graphic design studio.',
-    'projects.veneciaFlyer.title': 'Venecia Beauty Shop — Student Promo',
-    'projects.veneciaFlyer.desc': 'Instagram promo piece offering a student discount, made for a graphic design program.',
-    'projects.veneciaLabial.title': 'Venecia Beauty Shop — Product Post',
-    'projects.veneciaLabial.desc': 'Social media product ad for a lipstick line.',
+    'projects.veneciaFlyer.title': 'Venecia Beauty Shop',
+    'projects.veneciaFlyer.desc': 'Social promos, product ads and photography for a beauty shop.',
     'projects.calma.title': 'Calma Home — Product Photography',
     'projects.calma.desc': 'Product photography for furniture pieces from a home decor brand.',
     'projects.skaters.title': 'Skaters Campaign 2022 — Lifestyle Photography',
     'projects.skaters.desc': 'Lifestyle photo shoot for a brand campaign aimed at the local skate community.',
     'projects.tarocce.title': 'Tarocce — Editorial Photography',
-    'projects.tarocce.desc': 'Retouched editorial photography with dramatic backlighting.',
-    'projects.taroccePortrait.title': 'Tarocce — Editorial Portrait',
-    'projects.taroccePortrait.desc': 'Intimate close-up portrait with moody color-gel lighting.',
+    'projects.tarocce.desc': 'Retouched editorial and documentary-style photography with moody lighting.',
     'projects.consentida.title': 'La Consentida — Event Photography',
     'projects.consentida.desc': 'Nightlife event photography for a bar.',
     'projects.casas.title': 'Interior Photography',
@@ -164,18 +160,14 @@ const translations = {
     'video.watchYoutube': 'Ver en YouTube',
     'projects.teckel.title': 'Teckel Estudio — Identidad de Marca',
     'projects.teckel.desc': 'Diseño de identidad visual y banner de marca para un estudio creativo de foto, video y diseño gráfico.',
-    'projects.veneciaFlyer.title': 'Venecia Beauty Shop — Promoción para Estudiantes',
-    'projects.veneciaFlyer.desc': 'Pieza de Instagram con descuento especial, hecha para un programa de diseño gráfico.',
-    'projects.veneciaLabial.title': 'Venecia Beauty Shop — Post de Producto',
-    'projects.veneciaLabial.desc': 'Anuncio de producto para redes sociales de una línea de labiales.',
+    'projects.veneciaFlyer.title': 'Venecia Beauty Shop',
+    'projects.veneciaFlyer.desc': 'Promociones para redes, anuncios de producto y fotografía para una tienda de belleza.',
     'projects.calma.title': 'Calma Home — Fotografía de Producto',
     'projects.calma.desc': 'Fotografía de producto para piezas de mobiliario de una marca de decoración para el hogar.',
     'projects.skaters.title': 'Campaña Skaters 2022 — Fotografía Lifestyle',
     'projects.skaters.desc': 'Sesión de fotografía lifestyle para una campaña de marca dirigida a la comunidad skater local.',
     'projects.tarocce.title': 'Tarocce — Fotografía Editorial',
-    'projects.tarocce.desc': 'Fotografía editorial con retoque e iluminación dramática a contraluz.',
-    'projects.taroccePortrait.title': 'Tarocce — Retrato Editorial',
-    'projects.taroccePortrait.desc': 'Retrato íntimo en primer plano con iluminación de gel de color.',
+    'projects.tarocce.desc': 'Fotografía editorial y documental con retoque e iluminación de ambiente.',
     'projects.consentida.title': 'La Consentida — Fotografía de Evento',
     'projects.consentida.desc': 'Cobertura fotográfica de ambiente nocturno para un bar.',
     'projects.casas.title': 'Fotografía de Interiores',
@@ -290,3 +282,145 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   revealTargets.forEach(el => revealObserver.observe(el));
 }
+
+// Project galleries (lightbox)
+const galleries = {
+  lozanoWeb: ['assets/img/lozano-inicio-web-full.jpg'],
+  lozanoAds: ['assets/img/lozano-anuncios-tonelaje-full.jpg'],
+  lozanoCatalog: ['assets/img/lozano-revista-agosto-full.jpg'],
+  lozanoMesPatrio: [
+    'assets/img/lozano-mes-patrio-full.jpg',
+    'assets/img/lozano-mes-patrio-2-full.jpg',
+    'assets/img/lozano-mes-patrio-3-full.jpg',
+  ],
+  zensano: [
+    'assets/img/zensano-menu-full.jpg',
+    'assets/img/zensano-2-full.jpg',
+    'assets/img/zensano-3-full.jpg',
+    'assets/img/zensano-4-full.jpg',
+    'assets/img/zensano-5-full.jpg',
+    'assets/img/zensano-6-full.jpg',
+  ],
+  teckel: [
+    'assets/img/teckel-portada-full.jpg',
+    'assets/img/teckel-2-full.jpg',
+    'assets/img/teckel-3-full.jpg',
+    'assets/img/teckel-4-full.jpg',
+    'assets/img/teckel-5-full.jpg',
+  ],
+  venecia: [
+    'assets/img/venecia-flyer-escograf-full.jpg',
+    'assets/img/venecia-labial-magico-full.jpg',
+    'assets/img/venecia-3-full.jpg',
+    'assets/img/venecia-4-full.jpg',
+    'assets/img/venecia-5-full.jpg',
+    'assets/img/venecia-6-full.jpg',
+  ],
+  calma: [
+    'assets/img/calma-mueble-full.jpg',
+    'assets/img/calma-2-full.jpg',
+    'assets/img/calma-3-full.jpg',
+    'assets/img/calma-4-full.jpg',
+    'assets/img/calma-5-full.jpg',
+    'assets/img/calma-6-full.jpg',
+    'assets/img/calma-7-full.jpg',
+  ],
+  skaters: [
+    'assets/img/skaters-2022-full.jpg',
+    'assets/img/skaters-2-full.jpg',
+    'assets/img/skaters-3-full.jpg',
+    'assets/img/skaters-4-full.jpg',
+    'assets/img/skaters-5-full.jpg',
+    'assets/img/skaters-6-full.jpg',
+    'assets/img/skaters-7-full.jpg',
+    'assets/img/skaters-8-full.jpg',
+  ],
+  tarocce: [
+    'assets/img/tarocce-editorial-full.jpg',
+    'assets/img/tarocce-retrato-full.jpg',
+    'assets/img/tarocce-3-full.jpg',
+    'assets/img/tarocce-4-full.jpg',
+    'assets/img/tarocce-5-full.jpg',
+    'assets/img/tarocce-6-full.jpg',
+    'assets/img/tarocce-7-full.jpg',
+  ],
+  consentida: [
+    'assets/img/consentida-evento-full.jpg',
+    'assets/img/consentida-2-full.jpg',
+  ],
+  casas: [
+    'assets/img/casas-interiores-full.jpg',
+    'assets/img/casas-2-full.jpg',
+    'assets/img/casas-3-full.jpg',
+    'assets/img/casas-4-full.jpg',
+    'assets/img/casas-5-full.jpg',
+    'assets/img/casas-6-full.jpg',
+    'assets/img/casas-7-full.jpg',
+  ],
+  cotorritos: ['assets/img/cotorritos-bebidas-full.jpg'],
+};
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCounter = document.getElementById('lightboxCounter');
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+const lightboxClose = document.getElementById('lightboxClose');
+
+let currentGallery = [];
+let currentIndex = 0;
+
+function updateLightbox() {
+  lightboxImg.src = currentGallery[currentIndex];
+  const multi = currentGallery.length > 1;
+  lightboxCounter.textContent = multi ? `${currentIndex + 1} / ${currentGallery.length}` : '';
+  lightboxPrev.hidden = !multi;
+  lightboxNext.hidden = !multi;
+}
+function openLightbox(slug) {
+  const list = galleries[slug];
+  if (!list || !list.length) return;
+  currentGallery = list;
+  currentIndex = 0;
+  updateLightbox();
+  lightbox.classList.add('is-open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lightbox.classList.remove('is-open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+function showNext() {
+  currentIndex = (currentIndex + 1) % currentGallery.length;
+  updateLightbox();
+}
+function showPrev() {
+  currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+  updateLightbox();
+}
+
+document.querySelectorAll('.project-media[data-gallery]').forEach(a => {
+  const slug = a.dataset.gallery;
+  const count = (galleries[slug] || []).length;
+  const badge = a.querySelector('.gallery-badge');
+  if (badge && count > 1) badge.textContent = `+${count - 1}`;
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    openLightbox(slug);
+  });
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxNext.addEventListener('click', showNext);
+lightboxPrev.addEventListener('click', showPrev);
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('is-open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') showNext();
+  if (e.key === 'ArrowLeft') showPrev();
+});
