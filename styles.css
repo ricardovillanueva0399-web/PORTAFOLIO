@@ -123,6 +123,23 @@ a{color:inherit;}
 .card--yellow p{color:rgba(16,22,43,0.75);}
 .card--yellow .card-icon{background:rgba(16,22,43,0.12);}
 
+/* Projects */
+.grid-projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.project{
+  background:var(--paper);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;
+}
+.project-media{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--navy);}
+.project-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease;}
+.project-media:hover img{transform:scale(1.05);}
+.project-body{padding:20px 22px 24px;}
+.project-tag{
+  display:inline-block;font-weight:700;font-size:0.72rem;text-transform:uppercase;
+  letter-spacing:0.06em;color:var(--green);margin-bottom:8px;
+}
+.project-body h3{font-family:var(--ff-display);font-size:1.05rem;margin:0 0 8px;}
+.project-body p{margin:0;color:var(--muted);font-size:0.92rem;}
+
 /* Timeline */
 .timeline{border-left:2px solid var(--border);padding-left:28px;display:flex;flex-direction:column;gap:36px;margin-bottom:48px;}
 .timeline-item{position:relative;}
