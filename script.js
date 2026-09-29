@@ -382,8 +382,8 @@ const galleries = {
   lozanoAds: ['assets/img/lozano-anuncios-tonelaje-full.jpg'],
   lozanoCatalog: ['assets/img/lozano-revista-agosto-full.jpg'],
   lozanoMesPatrio: [
-    'assets/img/lozano-mes-patrio-full.jpg',
     'assets/img/lozano-mes-patrio-2-full.jpg',
+    'assets/img/lozano-mes-patrio-full.jpg',
     'assets/img/lozano-mes-patrio-3-full.jpg',
   ],
   zensano: [
@@ -395,16 +395,16 @@ const galleries = {
     'assets/img/zensano-6-full.jpg',
   ],
   teckel: [
-    'assets/img/teckel-portada-full.jpg',
     'assets/img/teckel-2-full.jpg',
+    'assets/img/teckel-portada-full.jpg',
     'assets/img/teckel-3-full.jpg',
     'assets/img/teckel-4-full.jpg',
     'assets/img/teckel-5-full.jpg',
   ],
   venecia: [
+    'assets/img/venecia-3-full.jpg',
     'assets/img/venecia-flyer-escograf-full.jpg',
     'assets/img/venecia-labial-magico-full.jpg',
-    'assets/img/venecia-3-full.jpg',
     'assets/img/venecia-4-full.jpg',
     'assets/img/venecia-5-full.jpg',
     'assets/img/venecia-6-full.jpg',
