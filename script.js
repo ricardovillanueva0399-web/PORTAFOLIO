@@ -1,42 +1,55 @@
 const translations = {
   en: {
-    'nav.work': 'Work',
-    'nav.about': 'About',
+    'nav.about': 'Experience',
     'nav.skills': 'Skills',
     'nav.contact': 'Contact',
-    'hero.eyebrow': 'Portfolio',
-    'hero.tag1': 'Graphic Design',
-    'hero.tag2': 'Photography & Video',
-    'hero.tag3': 'UX / UI',
-    'hero.sub': 'Chihuahua, México — I design brands, shoot and edit visual content, and build interfaces that hold together end to end.',
+    'nav.expertise': 'Expertise',
+    'nav.projects': 'Projects',
+    'meta.title': 'Ricardo Villanueva Valdez — Digital Marketing & Content',
+    'meta.description': 'Digital marketing portfolio of Ricardo Villanueva Valdez: strategy, social media, content production and brand design for brands in Chihuahua, México.',
+    'hero.eyebrow': 'Digital Marketing Portfolio',
+    'hero.tag1': 'Digital Marketing',
+    'hero.tag2': 'Social Media & Content',
+    'hero.tag3': 'Brand & Creative',
+    'hero.sub': 'Chihuahua, México — I run social and e-commerce channels, produce the design, photo and video content myself, and use analytics to keep improving it.',
     'hero.cta1': 'See the work',
     'hero.cta2': 'Get in touch',
-    'work.title': 'Work',
-    'work.sub': "A quick tour across the five areas I move between. Swap the placeholder blocks below for real project shots whenever you're ready.",
-    'work.card1.title': 'Graphic Design',
-    'work.card1.desc': 'Product/promo graphics, packaging, editorial layouts and brand systems — Illustrator, Photoshop, InDesign.',
-    'work.card2.title': 'Photography',
-    'work.card2.desc': 'Product, lifestyle and event photography with full retouching — Photoshop, Lightroom.',
+    'proof.stat1': 'Products in the e-commerce catalog I led digital strategy for',
+    'proof.stat2': "Videos produced for DHM Tools' social and YouTube channels",
+    'proof.stat3': 'Selected projects across campaigns, social, brand and photography',
+    'proof.brands': "Brands I've worked with",
+    'expertise.title': 'Marketing expertise',
+    'expertise.sub': 'Strategy, content and measurement under one roof — I plan the channel, make the creative and read the numbers.',
+    'expertise.p1.title': 'Strategy & Analytics',
+    'expertise.p1.desc': 'Digital strategy, audience segmentation and reach optimization for e-commerce and social channels.',
+    'expertise.p2.title': 'Social Media & Community',
+    'expertise.p2.desc': 'Social strategy and community management, with promos, product ads and post series designed in-house for each brand.',
+    'expertise.p3.title': 'Photo & Video Content',
+    'expertise.p3.desc': 'Scriptwriting, shooting, editing and retouching of product, lifestyle, event and video content for social and campaigns.',
+    'expertise.p4.title': 'Brand & Creative Direction',
+    'expertise.p4.desc': 'Brand identities, design systems, packaging, editorial layouts and outdoor advertising, kept consistent across every channel.',
+    'expertise.p5.title': 'E-commerce & Web',
+    'expertise.p5.desc': 'Shopify channel management, e-commerce catalog UI, storefront and home page design.',
+    'expertise.link': 'See related work',
     'work.card3.title': 'Video',
-    'work.card3.desc': 'Scriptwriting, shooting and editing for social and campaign content — Premiere, After Effects, DaVinci Resolve.',
-    'work.card4.title': 'UX / UI',
-    'work.card4.desc': 'E-commerce catalog UI, storefront design and layout systems — Figma, Dreamweaver.',
-    'work.card5.title': 'Academia',
-    'work.card5.desc': 'Curriculum design and technical instruction in digital design and 3D garment rendering.',
-    'projects.title': 'Selected Projects',
-    'projects.sub': 'Real client work behind the categories above.',
-    'projects.tagCatalog': 'Catalog Design',
+    'projects.title': 'Selected Work',
+    'projects.sub': "Campaigns, social content, brand identity and photography for real clients. Filter by what you're looking for.",
+    'filter.all': 'All',
+    'topic.social': 'Social Media',
+    'topic.campaign': 'Campaigns & Ads',
+    'topic.brand': 'Brand & Editorial',
+    'topic.content': 'Photo Content',
+    'topic.web': 'Web & E-commerce',
     'projects.lozanoWeb.title': 'Refrigeración Lozano — Website',
     'projects.lozanoWeb.desc': 'Home page design for a refrigeration & HVAC parts distributor with 27 points of sale.',
     'projects.lozanoAds.title': 'Refrigeración Lozano — Tonnage Ad Series',
     'projects.lozanoAds.desc': 'Five-piece product ad series (3 to 12.5 tons) for Lennox packaged units.',
     'projects.lozanoCatalog.title': 'Refrigeración Lozano — August Catalog Piece',
     'projects.lozanoCatalog.desc': 'Seasonal campaign piece for Lennox climate systems.',
-    'projects.tagEditorial': 'Editorial Design',
     'projects.zensano.title': 'ZenSano Health Bar — Menu Design',
     'projects.zensano.desc': 'Three-page restaurant menu with a custom dietary-icon system (sugar-free, dairy-free, gluten-free, vegan, keto).',
-    'videoReel.title': 'Video Reel — DHM Tools',
-    'videoReel.sub': 'Social media and YouTube video content produced for Domínguez Herramientas de México, a machining-tools distributor.',
+    'videoReel.title': 'Video Content — DHM Tools',
+    'videoReel.sub': 'Social media and YouTube video produced for Domínguez Herramientas de México, a machining-tools distributor: product videos, explainers and campaign pieces.',
     'projects.dhmHermle.title': 'Hermle × DHM Tools — Promo',
     'projects.dhmHermle.desc': 'Vertical social promo for the DHM Tools–Hermle brand partnership.',
     'projects.dhmPubli.title': 'REGO-FIX PGC 2506 — Long-Form Ad',
@@ -82,61 +95,86 @@ const translations = {
     'projects.lozanoMesPatrio.desc': 'Social post series for Mexican Independence Month, built on a full brand design system.',
     'about.title': 'Experience',
     'exp1.date': '2024 — Present',
+    'exp.featured': 'Marketing role',
     'exp1.role': 'Fashion Design Instructor',
-    'exp1.desc': 'Teach practical classes in Photoshop, Illustrator and CLO3D applied to fashion design. Create educational materials in digital illustration and 3D garment rendering, and train students on industry-standard tools and digital textile design.',
+    'exp1.b1': 'Teach practical classes in Photoshop, Illustrator and CLO3D applied to fashion design.',
+    'exp1.b2': 'Create educational materials in digital illustration and 3D garment rendering.',
+    'exp1.b3': 'Train students on industry-standard tools and digital textile design.',
     'exp2.role': 'Marketing and Social Media Manager',
-    'exp2.desc': "Developed and ran digital marketing strategy and social community management. Produced graphic and audiovisual content aligned to brand identity, managed the Shopify e-commerce channel, created corporate mascot illustrations, laid out the 20th-anniversary book, and maintained the company's visual identity.",
+    'exp2.b1': 'Developed and ran the digital marketing strategy and social community management.',
+    'exp2.b2': 'Produced graphic and audiovisual content aligned to the brand identity.',
+    'exp2.b3': 'Managed the Shopify e-commerce channel.',
+    'exp2.b4': 'Created the corporate mascot illustrations and laid out the 20th-anniversary book.',
+    'exp2.b5': "Maintained the company's visual identity.",
+    'exp2.linkVideo': 'Video content',
+    'exp2.linkWork': 'Social media work',
     'exp3.role': 'Graphic and Marketing Designer',
-    'exp3.desc': 'Coordinated commercial product and lifestyle photography for Calma Home, Venecia Beauty Shop, ZenSano and Practicubos. Handled scriptwriting and video editing for digital campaigns, editorial menu design in InDesign with a custom dietary-icon system, and outdoor advertising/branding across multiple brands.',
+    'exp3.b1': 'Coordinated commercial product and lifestyle photography for Calma Home, Venecia Beauty Shop, ZenSano and Practicubos.',
+    'exp3.b2': 'Handled scriptwriting and video editing for digital campaigns.',
+    'exp3.b3': 'Designed editorial menus in InDesign with a custom dietary-icon system.',
+    'exp3.b4': 'Delivered outdoor advertising and branding across multiple brands.',
     'highlight.title': 'Marketing highlight',
     'highlight.desc': 'Directed digital strategy for an e-commerce catalog of 2,000+ products, using Google Ads and Search Console to optimize reach, and Meta and Shopify analytics to segment audiences — while owning full brand management from identity design to editorial art direction.',
     'skills.title': 'Skills & Tools',
     'skills.group1': 'Design',
     'skills.group2': 'Photo & Video',
     'skills.group3': 'UX / UI',
-    'skills.group4': 'Marketing',
+    'skills.group4': 'Marketing & Analytics',
     'contact.title': "Let's work together",
-    'contact.sub': 'Open to freelance, collaborations and full-time roles across design, photo/video and UX/UI.',
+    'contact.sub': 'Open to freelance, collaborations and full-time roles in digital marketing, social media and content.',
     'footer.built': 'Built with plain HTML/CSS/JS.',
   },
   es: {
-    'nav.work': 'Trabajo',
     'nav.about': 'Experiencia',
     'nav.skills': 'Habilidades',
     'nav.contact': 'Contacto',
-    'hero.eyebrow': 'Portafolio',
-    'hero.tag1': 'Diseño Gráfico',
-    'hero.tag2': 'Fotografía y Video',
-    'hero.tag3': 'UX / UI',
-    'hero.sub': 'Chihuahua, México — Diseño marcas, produzco y edito contenido visual, y construyo interfaces coherentes de principio a fin.',
+    'nav.expertise': 'Especialidades',
+    'nav.projects': 'Proyectos',
+    'meta.title': 'Ricardo Villanueva Valdez — Marketing Digital y Contenido',
+    'meta.description': 'Portafolio de marketing digital de Ricardo Villanueva Valdez: estrategia, redes sociales, producción de contenido y diseño de marca para marcas en Chihuahua, México.',
+    'hero.eyebrow': 'Portafolio de Marketing Digital',
+    'hero.tag1': 'Marketing Digital',
+    'hero.tag2': 'Redes Sociales y Contenido',
+    'hero.tag3': 'Marca y Creatividad',
+    'hero.sub': 'Chihuahua, México — Gestiono canales de redes sociales y e-commerce, produzco yo mismo el contenido de diseño, foto y video, y uso analítica para seguir mejorándolo.',
     'hero.cta1': 'Ver el trabajo',
     'hero.cta2': 'Contáctame',
-    'work.title': 'Trabajo',
-    'work.sub': 'Un recorrido rápido por las cinco áreas en las que me muevo. Reemplaza los bloques de color por fotos reales de proyectos cuando estés listo.',
-    'work.card1.title': 'Diseño Gráfico',
-    'work.card1.desc': 'Gráficos de producto/promoción, empaques, maquetación editorial y sistemas de marca — Illustrator, Photoshop, InDesign.',
-    'work.card2.title': 'Fotografía',
-    'work.card2.desc': 'Fotografía de producto, lifestyle y eventos con retoque completo — Photoshop, Lightroom.',
+    'proof.stat1': 'Productos en el catálogo de e-commerce cuya estrategia digital dirigí',
+    'proof.stat2': 'Videos producidos para las redes y el canal de YouTube de DHM Tools',
+    'proof.stat3': 'Proyectos seleccionados de campañas, redes sociales, marca y fotografía',
+    'proof.brands': 'Marcas con las que he trabajado',
+    'expertise.title': 'Especialidades de marketing',
+    'expertise.sub': 'Estrategia, contenido y medición en un solo lugar — planeo el canal, hago la parte creativa y leo los números.',
+    'expertise.p1.title': 'Estrategia y Analítica',
+    'expertise.p1.desc': 'Estrategia digital, segmentación de audiencias y optimización de alcance para canales de e-commerce y redes sociales.',
+    'expertise.p2.title': 'Redes Sociales y Comunidad',
+    'expertise.p2.desc': 'Estrategia social y gestión de comunidad, con promociones, anuncios de producto y series de publicaciones diseñadas internamente para cada marca.',
+    'expertise.p3.title': 'Contenido en Foto y Video',
+    'expertise.p3.desc': 'Guion, grabación, edición y retoque de contenido de producto, lifestyle, eventos y video para redes y campañas.',
+    'expertise.p4.title': 'Marca y Dirección Creativa',
+    'expertise.p4.desc': 'Identidades de marca, sistemas de diseño, empaques, maquetación editorial y publicidad exterior, con coherencia en todos los canales.',
+    'expertise.p5.title': 'E-commerce y Web',
+    'expertise.p5.desc': 'Gestión del canal Shopify, UI de catálogo de e-commerce, diseño de tienda y de página de inicio.',
+    'expertise.link': 'Ver trabajos relacionados',
     'work.card3.title': 'Video',
-    'work.card3.desc': 'Guion, grabación y edición de contenido para redes y campañas — Premiere, After Effects, DaVinci Resolve.',
-    'work.card4.title': 'UX / UI',
-    'work.card4.desc': 'UI para catálogo de e-commerce, diseño de tienda y sistemas de maquetación — Figma, Dreamweaver.',
-    'work.card5.title': 'Academia',
-    'work.card5.desc': 'Diseño curricular e instrucción técnica en diseño digital y renderizado 3D de prendas.',
-    'projects.title': 'Proyectos Seleccionados',
-    'projects.sub': 'Trabajo real de clientes detrás de las categorías de arriba.',
-    'projects.tagCatalog': 'Diseño Editorial',
+    'projects.title': 'Trabajo Seleccionado',
+    'projects.sub': 'Campañas, contenido para redes, identidad de marca y fotografía para clientes reales. Filtra por lo que buscas.',
+    'filter.all': 'Todo',
+    'topic.social': 'Redes Sociales',
+    'topic.campaign': 'Campañas y Anuncios',
+    'topic.brand': 'Marca y Editorial',
+    'topic.content': 'Contenido Fotográfico',
+    'topic.web': 'Web y E-commerce',
     'projects.lozanoWeb.title': 'Refrigeración Lozano — Sitio Web',
     'projects.lozanoWeb.desc': 'Diseño de página de inicio para un distribuidor de refacciones de refrigeración y climatización con 27 puntos de venta.',
     'projects.lozanoAds.title': 'Refrigeración Lozano — Serie de Anuncios por Tonelaje',
     'projects.lozanoAds.desc': 'Serie de 5 anuncios de producto (3 a 12.5 toneladas) para unidades paquete Lennox.',
     'projects.lozanoCatalog.title': 'Refrigeración Lozano — Pieza de Revista, Agosto 2026',
     'projects.lozanoCatalog.desc': 'Pieza de campaña estacional para equipos de climatización Lennox.',
-    'projects.tagEditorial': 'Diseño Editorial',
     'projects.zensano.title': 'ZenSano Health Bar — Diseño de Menú',
     'projects.zensano.desc': 'Menú de restaurante a 3 páginas con sistema de iconografía personalizado para restricciones alimenticias (sin azúcar, sin lácteos, sin gluten, vegano, keto).',
-    'videoReel.title': 'Reel de Video — DHM Tools',
-    'videoReel.sub': 'Contenido en video para redes sociales y YouTube producido para Domínguez Herramientas de México, distribuidor de herramientas de maquinado.',
+    'videoReel.title': 'Contenido en Video — DHM Tools',
+    'videoReel.sub': 'Video para redes sociales y YouTube producido para Domínguez Herramientas de México, distribuidor de herramientas de maquinado: videos de producto, explicativos y piezas de campaña.',
     'projects.dhmHermle.title': 'Hermle × DHM Tools — Promo',
     'projects.dhmHermle.desc': 'Promo vertical para redes sociales sobre la alianza de marca DHM Tools–Hermle.',
     'projects.dhmPubli.title': 'REGO-FIX PGC 2506 — Anuncio Extendido',
@@ -182,21 +220,33 @@ const translations = {
     'projects.lozanoMesPatrio.desc': 'Serie de publicaciones para redes sociales con motivo del Mes Patrio, construida sobre un sistema de diseño de marca completo.',
     'about.title': 'Experiencia',
     'exp1.date': '2024 — Presente',
+    'exp.featured': 'Rol de marketing',
     'exp1.role': 'Instructor de Diseño de Modas',
-    'exp1.desc': 'Imparto clases prácticas de Photoshop, Illustrator y CLO3D aplicadas al diseño de modas. Creo materiales educativos de ilustración digital y renderizado 3D de prendas, y capacito a los estudiantes en herramientas estándar de la industria y diseño textil digital.',
+    'exp1.b1': 'Imparto clases prácticas de Photoshop, Illustrator y CLO3D aplicadas al diseño de modas.',
+    'exp1.b2': 'Creo materiales educativos de ilustración digital y renderizado 3D de prendas.',
+    'exp1.b3': 'Capacito a los estudiantes en herramientas estándar de la industria y diseño textil digital.',
     'exp2.role': 'Gerente de Marketing y Redes Sociales',
-    'exp2.desc': 'Desarrollé y ejecuté la estrategia de marketing digital y la gestión integral de comunidades en redes sociales. Produje contenido gráfico y audiovisual alineado a la identidad de marca, gestioné el canal de e-commerce en Shopify, creé ilustraciones de la mascota corporativa, diseñé el libro del 20 aniversario y mantuve la identidad visual de la empresa.',
+    'exp2.b1': 'Desarrollé y ejecuté la estrategia de marketing digital y la gestión integral de comunidades en redes sociales.',
+    'exp2.b2': 'Produje contenido gráfico y audiovisual alineado a la identidad de marca.',
+    'exp2.b3': 'Gestioné el canal de e-commerce en Shopify.',
+    'exp2.b4': 'Creé las ilustraciones de la mascota corporativa y diseñé el libro del 20 aniversario.',
+    'exp2.b5': 'Mantuve la identidad visual de la empresa.',
+    'exp2.linkVideo': 'Contenido en video',
+    'exp2.linkWork': 'Trabajo en redes sociales',
     'exp3.role': 'Diseñador Gráfico y de Marketing',
-    'exp3.desc': 'Coordiné fotografía comercial de producto y lifestyle para Calma Home, Venecia Beauty Shop, ZenSano y Practicubos. Me encargué de guionismo y edición de video para campañas digitales, diseño editorial de menús en InDesign con un sistema de iconografía personalizado para restricciones alimenticias, y campañas de publicidad exterior y branding para varias marcas.',
+    'exp3.b1': 'Coordiné fotografía comercial de producto y lifestyle para Calma Home, Venecia Beauty Shop, ZenSano y Practicubos.',
+    'exp3.b2': 'Me encargué de guionismo y edición de video para campañas digitales.',
+    'exp3.b3': 'Diseñé menús editoriales en InDesign con un sistema de iconografía personalizado para restricciones alimenticias.',
+    'exp3.b4': 'Realicé campañas de publicidad exterior y branding para varias marcas.',
     'highlight.title': 'Destacado de marketing',
     'highlight.desc': 'Dirigí la estrategia digital de un catálogo de e-commerce de más de 2,000 productos, usando Google Ads y Search Console para optimizar el alcance, y analítica de Meta y Shopify para segmentar audiencias — a la par de la gestión completa de marca, desde la identidad hasta la dirección de arte editorial.',
     'skills.title': 'Habilidades y Herramientas',
     'skills.group1': 'Diseño',
     'skills.group2': 'Foto y Video',
     'skills.group3': 'UX / UI',
-    'skills.group4': 'Marketing',
+    'skills.group4': 'Marketing y Analítica',
     'contact.title': 'Trabajemos juntos',
-    'contact.sub': 'Disponible para freelance, colaboraciones y roles de tiempo completo en diseño, foto/video y UX/UI.',
+    'contact.sub': 'Disponible para freelance, colaboraciones y roles de tiempo completo en marketing digital, redes sociales y contenido.',
     'footer.built': 'Hecho con HTML/CSS/JS puro.',
   },
 };
@@ -211,6 +261,9 @@ function applyLanguage(lang) {
     if (dict[key]) el.textContent = dict[key];
   });
   document.documentElement.lang = lang;
+  if (dict['meta.title']) document.title = dict['meta.title'];
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && dict['meta.description']) metaDesc.setAttribute('content', dict['meta.description']);
   langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
   langToggle.setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
   try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
@@ -233,6 +286,12 @@ langToggle.addEventListener('click', () => {
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Stats that count items on the page stay accurate as projects/videos are added
+document.querySelectorAll('[data-count]').forEach(el => {
+  const total = document.querySelectorAll(el.dataset.count).length;
+  if (total) el.textContent = total;
+});
 
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
@@ -264,12 +323,12 @@ window.addEventListener('scroll', syncNavShadow, { passive: true });
 
 // Scroll-reveal animations
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-['.grid-work', '.grid-projects', '.grid-videos', '.skills-grid', '.timeline'].forEach(sel => {
+['.grid-work', '.grid-projects', '.grid-videos', '.skills-grid', '.timeline', '.stats'].forEach(sel => {
   const el = document.querySelector(sel);
   if (el) el.classList.add('reveal-group');
 });
 const revealTargets = document.querySelectorAll(
-  '.card, .project, .video-card, .skill-group, .timeline-item, .highlight-box, .section-title'
+  '.card, .project, .video-card, .skill-group, .timeline-item, .highlight-box, .section-title, .stat, .brands'
 );
 revealTargets.forEach(el => el.classList.add('reveal'));
 
@@ -287,6 +346,27 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
   revealTargets.forEach(el => revealObserver.observe(el));
 }
 
+// Project filters
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('#projectGrid .project');
+
+function applyFilter(topic) {
+  filterBtns.forEach(btn => {
+    const active = btn.dataset.filter === topic;
+    btn.classList.toggle('is-active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  });
+  projectCards.forEach(card => {
+    card.hidden = topic !== 'all' && card.dataset.topic !== topic;
+  });
+}
+
+filterBtns.forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
+// Links elsewhere on the page (expertise cards, experience) that jump to a pre-filtered project grid
+document.querySelectorAll('[data-filter-link]').forEach(link => {
+  link.addEventListener('click', () => applyFilter(link.dataset.filterLink));
+});
+
 // Project galleries (lightbox)
 const galleries = {
   dhmDesign: [
@@ -302,8 +382,8 @@ const galleries = {
   lozanoAds: ['assets/img/lozano-anuncios-tonelaje-full.jpg'],
   lozanoCatalog: ['assets/img/lozano-revista-agosto-full.jpg'],
   lozanoMesPatrio: [
-    'assets/img/lozano-mes-patrio-full.jpg',
     'assets/img/lozano-mes-patrio-2-full.jpg',
+    'assets/img/lozano-mes-patrio-full.jpg',
     'assets/img/lozano-mes-patrio-3-full.jpg',
   ],
   zensano: [
@@ -315,16 +395,16 @@ const galleries = {
     'assets/img/zensano-6-full.jpg',
   ],
   teckel: [
-    'assets/img/teckel-portada-full.jpg',
     'assets/img/teckel-2-full.jpg',
+    'assets/img/teckel-portada-full.jpg',
     'assets/img/teckel-3-full.jpg',
     'assets/img/teckel-4-full.jpg',
     'assets/img/teckel-5-full.jpg',
   ],
   venecia: [
+    'assets/img/venecia-3-full.jpg',
     'assets/img/venecia-flyer-escograf-full.jpg',
     'assets/img/venecia-labial-magico-full.jpg',
-    'assets/img/venecia-3-full.jpg',
     'assets/img/venecia-4-full.jpg',
     'assets/img/venecia-5-full.jpg',
     'assets/img/venecia-6-full.jpg',
