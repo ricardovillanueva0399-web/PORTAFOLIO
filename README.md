@@ -18,6 +18,10 @@ Just open `index.html` in a browser, or serve the folder with any static server.
 
 - All copy lives in `script.js` (`translations.en` / `translations.es`) and is bound to the markup with `data-i18n`.
 - **New project:** copy an `<article class="project">` block in `index.html`, set its `data-topic`
-  (`social`, `campaign`, `brand`, `content` or `web`; this drives the filter buttons), and register its
-  gallery images in the `galleries` object in `script.js`. The "projects" stat counts them automatically.
+  (`social`, `campaign`, `brand`, `content` or `web`; this drives the filter buttons), add its
+  `title` / `desc` / `meta` strings (channel · deliverables) to both languages in `script.js`, and register
+  its gallery images in the `galleries` object. Put the piece shown on the cover first in the gallery so the
+  lightbox opens on it. The "projects" stat counts cards automatically.
+- **Covers** are 960×720 (4:3) JPGs named `*-cover.jpg`. Design work is shown whole, 2–3 pieces of the
+  series on a backdrop in the client's color; photography is a full-bleed 4:3 crop.
 - **New video:** copy a `.video-card`; the "videos" stat counts them automatically.

@@ -40,14 +40,29 @@ const translations = {
     'topic.brand': 'Brand & Editorial',
     'topic.content': 'Photo Content',
     'topic.web': 'Web & E-commerce',
+    'case.eyebrow': 'Featured case · 2023–2025',
+    'case.title': 'DHM Tools — End-to-end digital marketing',
+    'case.intro': 'As Marketing & Social Media Manager for a machining-tools distributor, I ran the digital strategy, the social channels, content production and the Shopify store.',
+    'case.strategy.title': 'Strategy',
+    'case.strategy.desc': 'Google Ads and Search Console for reach; Meta and Shopify analytics to segment audiences across a 2,000+ product catalog.',
+    'case.content.title': 'Content',
+    'case.content.desc': 'Offer and product posts, product and explainer videos, co-branded pieces with Kennametal, Hermle and REGO-FIX, the corporate mascot and the 20th-anniversary book.',
+    'case.channels.title': 'Channels',
+    'case.channels.desc': 'Social media on Meta, YouTube and the Shopify online store.',
+    'case.viewPosts': 'View posts',
+    'case.watchVideos': 'Watch the videos',
     'projects.lozanoWeb.title': 'Refrigeración Lozano — Website',
-    'projects.lozanoWeb.desc': 'Home page design for a refrigeration & HVAC parts distributor with 27 points of sale.',
-    'projects.lozanoAds.title': 'Refrigeración Lozano — Tonnage Ad Series',
-    'projects.lozanoAds.desc': 'Five-piece product ad series (3 to 12.5 tons) for Lennox packaged units.',
-    'projects.lozanoCatalog.title': 'Refrigeración Lozano — August Catalog Piece',
-    'projects.lozanoCatalog.desc': 'Seasonal campaign piece for Lennox climate systems.',
+    'projects.lozanoWeb.desc': 'Home page for a refrigeration & HVAC distributor with 27 points of sale, organized around shopping by category, brands, current promotions and fast quotes.',
+    'projects.lozanoWeb.meta': 'Website · Home page design',
+    'projects.lozanoAds.title': 'Refrigeración Lozano — Last Units Ad Series',
+    'projects.lozanoAds.desc': '\'Last units\' sales series for Lennox packaged units: one ad per capacity (3 to 12.5 tons) with specs, cash price, interest-free months and a promo deadline.',
+    'projects.lozanoAds.meta': 'Product ads · 5 ads',
+    'projects.lozanoCatalog.title': 'Refrigeración Lozano — August Magazine Page',
+    'projects.lozanoCatalog.desc': 'End-of-summer page (\'El calor se va, la climatización se queda\') showcasing the Lennox line, with credit and buy-online calls to action.',
+    'projects.lozanoCatalog.meta': 'Magazine · Seasonal campaign',
     'projects.zensano.title': 'ZenSano Health Bar — Menu Design',
-    'projects.zensano.desc': 'Three-page restaurant menu with a custom dietary-icon system (sugar-free, dairy-free, gluten-free, vegan, keto).',
+    'projects.zensano.desc': 'Three-page menu for a health bar, with a dietary-icon system (sugar-free, dairy-free, gluten-free, vegan, keto) so customers spot their options at a glance.',
+    'projects.zensano.meta': 'Menu design · Icon system · 3 pages',
     'videoReel.title': 'Video Content — DHM Tools',
     'videoReel.sub': 'Social media and YouTube video produced for Domínguez Herramientas de México, a machining-tools distributor: product videos, explainers and campaign pieces.',
     'projects.dhmHermle.title': 'Hermle × DHM Tools — Promo',
@@ -74,25 +89,33 @@ const translations = {
     'projects.dhmPgc.desc': 'Product YouTube Short for the REGO-FIX PGC 2506 clamping system.',
     'video.watchYoutube': 'Watch on YouTube',
     'projects.teckel.title': 'Teckel Estudio — Brand Identity',
-    'projects.teckel.desc': 'Visual identity and brand banner design for a creative photo, video and graphic design studio.',
-    'projects.veneciaFlyer.title': 'Venecia Beauty Shop',
-    'projects.veneciaFlyer.desc': 'Social promos, product ads and photography for a beauty shop.',
-    'projects.dhmDesign.title': 'DHM Tools — Graphic Design',
-    'projects.dhmDesign.desc': "Product and promo graphics for a machining-tools distributor's social feed.",
+    'projects.teckel.desc': 'Visual identity for a creative photo, video and design studio: logo, social banner, services flyer and poster.',
+    'projects.teckel.meta': 'Brand identity · 5 pieces',
+    'projects.veneciaFlyer.title': 'Venecia Beauty Shop — Social Media',
+    'projects.veneciaFlyer.desc': 'Price-led product promos with clear calls to action for a beauty shop\'s social feed, plus a student-discount flyer and product photography.',
+    'projects.veneciaFlyer.meta': 'Social media · Photography · 6 pieces',
     'projects.calma.title': 'Calma Home — Product Photography',
-    'projects.calma.desc': "Product photography for Practicubos' Calma home decor line.",
-    'projects.skaters.title': 'Skaters Campaign 2022 — Lifestyle Photography',
-    'projects.skaters.desc': 'Lifestyle photo shoot for a Practicubos brand campaign aimed at the local skate community.',
+    'projects.calma.desc': 'Product photography for Practicubos\' Calma home line, shooting each piece from several angles.',
+    'projects.calma.meta': 'Product photography · 7 photos',
+    'projects.skaters.title': 'Practicubos — Skaters Campaign 2022',
+    'projects.skaters.desc': 'Lifestyle campaign aimed at the local skate community, taking Practicubos\' cube furniture to the skate park under the line \'¡Piensa fuera del cubo!\'.',
+    'projects.skaters.meta': 'Brand campaign · Lifestyle photography · 8 photos',
     'projects.tarocce.title': 'Tarocce — Editorial Photography',
     'projects.tarocce.desc': 'Retouched editorial and documentary-style photography with moody lighting.',
+    'projects.tarocce.meta': 'Editorial photography · 7 photos',
     'projects.consentida.title': 'La Consentida — Event Photography',
     'projects.consentida.desc': 'Nightlife event photography for a bar.',
-    'projects.casas.title': 'Interior Photography',
-    'projects.casas.desc': 'Architectural interior photography for a residential property.',
+    'projects.consentida.meta': 'Event photography · 2 photos',
+    'projects.casas.title': 'Residential Architectural Photography',
+    'projects.casas.desc': 'Exterior and interior architectural photography for a residential property.',
+    'projects.casas.meta': 'Architectural photography · 7 photos',
+    'expertise.linkCase': 'See the DHM Tools case',
     'projects.cotorritos.title': 'Cotorritos — Beverage Photography',
-    'projects.cotorritos.desc': "Product photography for a bar's signature drinks.",
+    'projects.cotorritos.desc': 'Product photography for a bar\'s signature drinks.',
+    'projects.cotorritos.meta': 'Product photography',
     'projects.lozanoMesPatrio.title': 'Refrigeración Lozano — Independence Month Campaign',
-    'projects.lozanoMesPatrio.desc': 'Social post series for Mexican Independence Month, built on a full brand design system.',
+    'projects.lozanoMesPatrio.desc': 'Independence Month promo campaign built on Refrigeración Lozano\'s brand system: \'¡Viva el ahorro!\' social posts plus limited-time minisplit offers.',
+    'projects.lozanoMesPatrio.meta': 'Social media · 3 pieces',
     'about.title': 'Experience',
     'exp1.date': '2024 — Present',
     'exp.featured': 'Marketing role',
@@ -107,7 +130,7 @@ const translations = {
     'exp2.b4': 'Created the corporate mascot illustrations and laid out the 20th-anniversary book.',
     'exp2.b5': "Maintained the company's visual identity.",
     'exp2.linkVideo': 'Video content',
-    'exp2.linkWork': 'Social media work',
+    'exp2.linkWork': 'DHM Tools case',
     'exp3.role': 'Graphic and Marketing Designer',
     'exp3.b1': 'Coordinated commercial product and lifestyle photography for Calma Home, Venecia Beauty Shop, ZenSano and Practicubos.',
     'exp3.b2': 'Handled scriptwriting and video editing for digital campaigns.',
@@ -165,14 +188,29 @@ const translations = {
     'topic.brand': 'Marca y Editorial',
     'topic.content': 'Contenido Fotográfico',
     'topic.web': 'Web y E-commerce',
+    'case.eyebrow': 'Caso destacado · 2023–2025',
+    'case.title': 'DHM Tools — Marketing digital de principio a fin',
+    'case.intro': 'Como Gerente de Marketing y Redes Sociales de un distribuidor de herramientas de maquinado, llevé la estrategia digital, las redes sociales, la producción de contenido y la tienda en Shopify.',
+    'case.strategy.title': 'Estrategia',
+    'case.strategy.desc': 'Google Ads y Search Console para el alcance; analítica de Meta y Shopify para segmentar audiencias en un catálogo de más de 2,000 productos.',
+    'case.content.title': 'Contenido',
+    'case.content.desc': 'Posts de ofertas y producto, videos de producto y explicativos, piezas en co-branding con Kennametal, Hermle y REGO-FIX, la mascota corporativa y el libro del 20 aniversario.',
+    'case.channels.title': 'Canales',
+    'case.channels.desc': 'Redes sociales en Meta, YouTube y la tienda en línea en Shopify.',
+    'case.viewPosts': 'Ver publicaciones',
+    'case.watchVideos': 'Ver los videos',
     'projects.lozanoWeb.title': 'Refrigeración Lozano — Sitio Web',
-    'projects.lozanoWeb.desc': 'Diseño de página de inicio para un distribuidor de refacciones de refrigeración y climatización con 27 puntos de venta.',
-    'projects.lozanoAds.title': 'Refrigeración Lozano — Serie de Anuncios por Tonelaje',
-    'projects.lozanoAds.desc': 'Serie de 5 anuncios de producto (3 a 12.5 toneladas) para unidades paquete Lennox.',
-    'projects.lozanoCatalog.title': 'Refrigeración Lozano — Pieza de Revista, Agosto 2026',
-    'projects.lozanoCatalog.desc': 'Pieza de campaña estacional para equipos de climatización Lennox.',
+    'projects.lozanoWeb.desc': 'Página de inicio para un distribuidor de refrigeración y climatización con 27 puntos de venta, organizada para comprar por categoría, marcas, promociones vigentes y cotización rápida.',
+    'projects.lozanoWeb.meta': 'Sitio web · Diseño de página de inicio',
+    'projects.lozanoAds.title': 'Refrigeración Lozano — Serie Últimas Existencias',
+    'projects.lozanoAds.desc': 'Serie de venta de últimas existencias para unidades paquete Lennox: un anuncio por capacidad (3 a 12.5 toneladas) con ficha técnica, precio de contado, meses sin intereses y vigencia.',
+    'projects.lozanoAds.meta': 'Anuncios de producto · 5 anuncios',
+    'projects.lozanoCatalog.title': 'Refrigeración Lozano — Revista de Agosto',
+    'projects.lozanoCatalog.desc': 'Página de cierre de verano (\'El calor se va, la climatización se queda\') con la línea Lennox y llamados a crédito y compra en línea.',
+    'projects.lozanoCatalog.meta': 'Revista · Campaña de temporada',
     'projects.zensano.title': 'ZenSano Health Bar — Diseño de Menú',
-    'projects.zensano.desc': 'Menú de restaurante a 3 páginas con sistema de iconografía personalizado para restricciones alimenticias (sin azúcar, sin lácteos, sin gluten, vegano, keto).',
+    'projects.zensano.desc': 'Menú de 3 páginas para un health bar, con un sistema de iconos de restricciones alimenticias (sin azúcar, sin lácteos, sin gluten, vegano, keto) para que el cliente encuentre sus opciones de un vistazo.',
+    'projects.zensano.meta': 'Diseño de menú · Sistema de iconos · 3 páginas',
     'videoReel.title': 'Contenido en Video — DHM Tools',
     'videoReel.sub': 'Video para redes sociales y YouTube producido para Domínguez Herramientas de México, distribuidor de herramientas de maquinado: videos de producto, explicativos y piezas de campaña.',
     'projects.dhmHermle.title': 'Hermle × DHM Tools — Promo',
@@ -199,25 +237,33 @@ const translations = {
     'projects.dhmPgc.desc': 'YouTube Short de producto para el sistema de sujeción PGC 2506 de REGO-FIX.',
     'video.watchYoutube': 'Ver en YouTube',
     'projects.teckel.title': 'Teckel Estudio — Identidad de Marca',
-    'projects.teckel.desc': 'Diseño de identidad visual y banner de marca para un estudio creativo de foto, video y diseño gráfico.',
-    'projects.veneciaFlyer.title': 'Venecia Beauty Shop',
-    'projects.veneciaFlyer.desc': 'Promociones para redes, anuncios de producto y fotografía para una tienda de belleza.',
-    'projects.dhmDesign.title': 'DHM Tools — Diseño Gráfico',
-    'projects.dhmDesign.desc': 'Gráficos de producto y promociones para las redes sociales de un distribuidor de herramientas de maquinado.',
+    'projects.teckel.desc': 'Identidad visual para un estudio creativo de foto, video y diseño: logotipo, banner para redes, flyer de servicios y póster.',
+    'projects.teckel.meta': 'Identidad de marca · 5 piezas',
+    'projects.veneciaFlyer.title': 'Venecia Beauty Shop — Redes Sociales',
+    'projects.veneciaFlyer.desc': 'Promociones de producto con precio y llamado a la acción para las redes de una tienda de belleza, además de un flyer de descuento para estudiantes y fotografía de producto.',
+    'projects.veneciaFlyer.meta': 'Redes sociales · Fotografía · 6 piezas',
     'projects.calma.title': 'Calma Home — Fotografía de Producto',
-    'projects.calma.desc': 'Fotografía de producto para la línea de decoración para el hogar Calma, de Practicubos.',
-    'projects.skaters.title': 'Campaña Skaters 2022 — Fotografía Lifestyle',
-    'projects.skaters.desc': 'Sesión de fotografía lifestyle para una campaña de Practicubos dirigida a la comunidad skater local.',
+    'projects.calma.desc': 'Fotografía de producto para la línea de hogar Calma de Practicubos, con cada pieza desde varios ángulos.',
+    'projects.calma.meta': 'Fotografía de producto · 7 fotos',
+    'projects.skaters.title': 'Practicubos — Campaña Skaters 2022',
+    'projects.skaters.desc': 'Campaña lifestyle dirigida a la comunidad skater local, llevando los muebles de cubos de Practicubos al skatepark bajo el lema \'¡Piensa fuera del cubo!\'.',
+    'projects.skaters.meta': 'Campaña de marca · Fotografía lifestyle · 8 fotos',
     'projects.tarocce.title': 'Tarocce — Fotografía Editorial',
     'projects.tarocce.desc': 'Fotografía editorial y documental con retoque e iluminación de ambiente.',
+    'projects.tarocce.meta': 'Fotografía editorial · 7 fotos',
     'projects.consentida.title': 'La Consentida — Fotografía de Evento',
     'projects.consentida.desc': 'Cobertura fotográfica de ambiente nocturno para un bar.',
-    'projects.casas.title': 'Fotografía de Interiores',
-    'projects.casas.desc': 'Fotografía arquitectónica de interiores para una propiedad residencial.',
+    'projects.consentida.meta': 'Fotografía de evento · 2 fotos',
+    'projects.casas.title': 'Fotografía Arquitectónica Residencial',
+    'projects.casas.desc': 'Fotografía arquitectónica de exteriores e interiores para una propiedad residencial.',
+    'projects.casas.meta': 'Fotografía arquitectónica · 7 fotos',
+    'expertise.linkCase': 'Ver el caso DHM Tools',
     'projects.cotorritos.title': 'Cotorritos — Fotografía de Bebidas',
     'projects.cotorritos.desc': 'Fotografía de producto para las bebidas de la casa de un bar.',
+    'projects.cotorritos.meta': 'Fotografía de producto',
     'projects.lozanoMesPatrio.title': 'Refrigeración Lozano — Campaña Mes Patrio',
-    'projects.lozanoMesPatrio.desc': 'Serie de publicaciones para redes sociales con motivo del Mes Patrio, construida sobre un sistema de diseño de marca completo.',
+    'projects.lozanoMesPatrio.desc': 'Campaña promocional de Mes Patrio sobre el sistema de marca de Refrigeración Lozano: posts \'¡Viva el ahorro!\' y ofertas por tiempo limitado en minisplits.',
+    'projects.lozanoMesPatrio.meta': 'Redes sociales · 3 piezas',
     'about.title': 'Experiencia',
     'exp1.date': '2024 — Presente',
     'exp.featured': 'Rol de marketing',
@@ -232,7 +278,7 @@ const translations = {
     'exp2.b4': 'Creé las ilustraciones de la mascota corporativa y diseñé el libro del 20 aniversario.',
     'exp2.b5': 'Mantuve la identidad visual de la empresa.',
     'exp2.linkVideo': 'Contenido en video',
-    'exp2.linkWork': 'Trabajo en redes sociales',
+    'exp2.linkWork': 'Caso DHM Tools',
     'exp3.role': 'Diseñador Gráfico y de Marketing',
     'exp3.b1': 'Coordiné fotografía comercial de producto y lifestyle para Calma Home, Venecia Beauty Shop, ZenSano y Practicubos.',
     'exp3.b2': 'Me encargué de guionismo y edición de video para campañas digitales.',
@@ -370,9 +416,9 @@ document.querySelectorAll('[data-filter-link]').forEach(link => {
 // Project galleries (lightbox)
 const galleries = {
   dhmDesign: [
+    'assets/img/dhm-design-3-full.jpg',
     'assets/img/dhm-design-full.jpg',
     'assets/img/dhm-design-2-full.jpg',
-    'assets/img/dhm-design-3-full.jpg',
     'assets/img/dhm-design-4-full.jpg',
     'assets/img/dhm-design-5-full.jpg',
     'assets/img/dhm-design-6-full.jpg',
@@ -419,6 +465,7 @@ const galleries = {
     'assets/img/calma-7-full.jpg',
   ],
   skaters: [
+    'assets/img/skaters-8-full.jpg',
     'assets/img/skaters-2022-full.jpg',
     'assets/img/skaters-2-full.jpg',
     'assets/img/skaters-3-full.jpg',
@@ -426,12 +473,11 @@ const galleries = {
     'assets/img/skaters-5-full.jpg',
     'assets/img/skaters-6-full.jpg',
     'assets/img/skaters-7-full.jpg',
-    'assets/img/skaters-8-full.jpg',
   ],
   tarocce: [
+    'assets/img/tarocce-3-full.jpg',
     'assets/img/tarocce-editorial-full.jpg',
     'assets/img/tarocce-retrato-full.jpg',
-    'assets/img/tarocce-3-full.jpg',
     'assets/img/tarocce-4-full.jpg',
     'assets/img/tarocce-5-full.jpg',
     'assets/img/tarocce-6-full.jpg',
@@ -442,8 +488,8 @@ const galleries = {
     'assets/img/consentida-2-full.jpg',
   ],
   casas: [
-    'assets/img/casas-interiores-full.jpg',
     'assets/img/casas-2-full.jpg',
+    'assets/img/casas-interiores-full.jpg',
     'assets/img/casas-3-full.jpg',
     'assets/img/casas-4-full.jpg',
     'assets/img/casas-5-full.jpg',
@@ -459,6 +505,7 @@ const lightboxCounter = document.getElementById('lightboxCounter');
 const lightboxPrev = document.getElementById('lightboxPrev');
 const lightboxNext = document.getElementById('lightboxNext');
 const lightboxClose = document.getElementById('lightboxClose');
+const lightboxCaption = document.getElementById('lightboxCaption');
 
 let currentGallery = [];
 let currentIndex = 0;
@@ -470,9 +517,11 @@ function updateLightbox() {
   lightboxPrev.hidden = !multi;
   lightboxNext.hidden = !multi;
 }
-function openLightbox(slug) {
+function openLightbox(slug, caption) {
   const list = galleries[slug];
   if (!list || !list.length) return;
+  lightboxCaption.textContent = caption || '';
+  lightboxImg.alt = caption || '';
   currentGallery = list;
   currentIndex = 0;
   updateLightbox();
@@ -494,6 +543,12 @@ function showPrev() {
   updateLightbox();
 }
 
+// Caption = the title of the card the trigger sits in (already in the current language)
+function captionFor(el) {
+  const title = el.closest('.project')?.querySelector('h3');
+  return title ? title.textContent : '';
+}
+
 document.querySelectorAll('.project-media[data-gallery]').forEach(a => {
   const slug = a.dataset.gallery;
   const count = (galleries[slug] || []).length;
@@ -501,8 +556,11 @@ document.querySelectorAll('.project-media[data-gallery]').forEach(a => {
   if (badge && count > 1) badge.textContent = `+${count - 1}`;
   a.addEventListener('click', e => {
     e.preventDefault();
-    openLightbox(slug);
+    openLightbox(slug, captionFor(a));
   });
+});
+document.querySelectorAll('[data-open-gallery]').forEach(btn => {
+  btn.addEventListener('click', () => openLightbox(btn.dataset.openGallery, captionFor(btn)));
 });
 
 lightboxClose.addEventListener('click', closeLightbox);
