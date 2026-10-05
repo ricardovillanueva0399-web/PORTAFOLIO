@@ -18,7 +18,7 @@ Just open `index.html` in a browser, or serve the folder with any static server.
 
 - All copy lives in `script.js` (`translations.en` / `translations.es`) and is bound to the markup with `data-i18n`.
 - **New project:** copy an `<article class="project">` block in `index.html`, set its `data-topic`
-  (`social`, `campaign`, `brand`, `content` or `web`; this drives the filter buttons), add its
+  (`social`, `campaign`, `brand`, `content` or `web`; this drives the filter buttons; use several separated by a space, e.g. `campaign content`, to list the card under more than one filter. The first one sets the card's label), add its
   `title` / `desc` / `meta` strings (channel · deliverables) to both languages in `script.js`, and register
   its gallery images in the `galleries` object. Put the piece shown on the cover first in the gallery so the
   lightbox opens on it. The "projects" stat counts cards automatically.

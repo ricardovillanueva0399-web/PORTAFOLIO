@@ -415,7 +415,8 @@ function applyFilter(topic) {
     btn.setAttribute('aria-pressed', String(active));
   });
   projectCards.forEach(card => {
-    card.hidden = topic !== 'all' && card.dataset.topic !== topic;
+    // data-topic can hold several space-separated topics (a card shows under each of them)
+    card.hidden = topic !== 'all' && !card.dataset.topic.split(' ').includes(topic);
   });
 }
 
