@@ -118,7 +118,7 @@ const translations = {
     'expertise.linkCase': 'See the DHM Tools case',
     'projects.cotorritos.title': 'Cotorritos — Beverage Photography',
     'projects.cotorritos.desc': 'Product photography for a bar\'s signature drinks.',
-    'projects.cotorritos.meta': 'Product & lifestyle photography · 9 photos',
+    'projects.cotorritos.meta': 'Product & lifestyle photography · 13 photos',
     'projects.lozanoMesPatrio.title': 'Refrigeración Lozano — Independence Month Campaign',
     'projects.lozanoMesPatrio.desc': 'Independence Month promo campaign built on Refrigeración Lozano\'s brand system: \'¡Viva el ahorro!\' social posts plus limited-time minisplit offers.',
     'projects.lozanoMesPatrio.meta': 'Social media · 3 pieces',
@@ -272,7 +272,7 @@ const translations = {
     'expertise.linkCase': 'Ver el caso DHM Tools',
     'projects.cotorritos.title': 'Cotorritos — Fotografía de Bebidas',
     'projects.cotorritos.desc': 'Fotografía de producto para las bebidas de la casa de un bar.',
-    'projects.cotorritos.meta': 'Fotografía de producto y lifestyle · 9 fotos',
+    'projects.cotorritos.meta': 'Fotografía de producto y lifestyle · 13 fotos',
     'projects.lozanoMesPatrio.title': 'Refrigeración Lozano — Campaña Mes Patrio',
     'projects.lozanoMesPatrio.desc': 'Campaña promocional de Mes Patrio sobre el sistema de marca de Refrigeración Lozano: posts \'¡Viva el ahorro!\' y ofertas por tiempo limitado en minisplits.',
     'projects.lozanoMesPatrio.meta': 'Redes sociales · 3 piezas',
@@ -533,6 +533,10 @@ const galleries = {
     'assets/img/cotorritos-7-full.jpg',
     'assets/img/cotorritos-8-full.jpg',
     'assets/img/cotorritos-9-full.jpg',
+    'assets/img/cotorritos-10-full.jpg',
+    'assets/img/cotorritos-11-full.jpg',
+    'assets/img/cotorritos-12-full.jpg',
+    'assets/img/cotorritos-13-full.jpg',
   ],
 };
 
