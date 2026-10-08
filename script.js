@@ -5,6 +5,7 @@ const translations = {
     'nav.contact': 'Contact',
     'nav.expertise': 'Expertise',
     'nav.projects': 'Projects',
+    'nav.menu': 'Menu',
     'meta.title': 'Ricardo Villanueva Valdez — Digital Marketing & Content',
     'meta.description': 'Digital marketing portfolio of Ricardo Villanueva Valdez: strategy, social media, content production and brand design for brands in Chihuahua, México.',
     'hero.eyebrow': 'Digital Marketing Portfolio',
@@ -18,6 +19,7 @@ const translations = {
     'proof.stat2': "Videos produced for DHM Tools' social and YouTube channels",
     'proof.stat3': 'Selected projects across campaigns, social, brand and photography',
     'proof.brands': "Brands I've worked with",
+    'proof.label': 'Highlights',
     'expertise.title': 'Marketing expertise',
     'expertise.sub': 'Strategy, content and measurement under one roof — I plan the channel, make the creative and read the numbers.',
     'expertise.p1.title': 'Strategy & Analytics',
@@ -35,6 +37,11 @@ const translations = {
     'projects.title': 'Selected Work',
     'projects.sub': "Campaigns, social content, brand identity and photography for real clients. Filter by what you're looking for.",
     'filter.all': 'All',
+    'filter.label': 'Filter projects',
+    'gallery.view': 'View gallery',
+    'lightbox.close': 'Close',
+    'lightbox.prev': 'Previous',
+    'lightbox.next': 'Next',
     'topic.social': 'Social Media',
     'topic.campaign': 'Campaigns & Ads',
     'topic.brand': 'Brand & Editorial',
@@ -159,6 +166,7 @@ const translations = {
     'nav.contact': 'Contacto',
     'nav.expertise': 'Especialidades',
     'nav.projects': 'Proyectos',
+    'nav.menu': 'Menú',
     'meta.title': 'Ricardo Villanueva Valdez — Marketing Digital y Contenido',
     'meta.description': 'Portafolio de marketing digital de Ricardo Villanueva Valdez: estrategia, redes sociales, producción de contenido y diseño de marca para marcas en Chihuahua, México.',
     'hero.eyebrow': 'Portafolio de Marketing Digital',
@@ -172,6 +180,7 @@ const translations = {
     'proof.stat2': 'Videos producidos para las redes y el canal de YouTube de DHM Tools',
     'proof.stat3': 'Proyectos seleccionados de campañas, redes sociales, marca y fotografía',
     'proof.brands': 'Marcas con las que he trabajado',
+    'proof.label': 'Destacados',
     'expertise.title': 'Especialidades de marketing',
     'expertise.sub': 'Estrategia, contenido y medición en un solo lugar — planeo el canal, hago la parte creativa y leo los números.',
     'expertise.p1.title': 'Estrategia y Analítica',
@@ -189,6 +198,11 @@ const translations = {
     'projects.title': 'Trabajo Seleccionado',
     'projects.sub': 'Campañas, contenido para redes, identidad de marca y fotografía para clientes reales. Filtra por lo que buscas.',
     'filter.all': 'Todo',
+    'filter.label': 'Filtrar proyectos',
+    'gallery.view': 'Ver galería',
+    'lightbox.close': 'Cerrar',
+    'lightbox.prev': 'Anterior',
+    'lightbox.next': 'Siguiente',
     'topic.social': 'Redes Sociales',
     'topic.campaign': 'Campañas y Anuncios',
     'topic.brand': 'Marca y Editorial',
@@ -309,7 +323,8 @@ const translations = {
   },
 };
 
-const langToggle = document.getElementById('langToggle');
+const langSwitch = document.getElementById('langSwitch');
+const langBtns = langSwitch.querySelectorAll('.lang-btn');
 const STORAGE_KEY = 'rvv-lang';
 
 function applyLanguage(lang) {
@@ -318,30 +333,44 @@ function applyLanguage(lang) {
     const key = el.getAttribute('data-i18n');
     if (dict[key]) el.textContent = dict[key];
   });
+  // Tooltips and screen-reader labels follow the language too
+  document.querySelectorAll('[data-i18n-title]').forEach(el => {
+    const val = dict[el.dataset.i18nTitle];
+    if (val) el.title = val;
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const val = dict[el.dataset.i18nAria];
+    if (val) el.setAttribute('aria-label', val);
+  });
   document.documentElement.lang = lang;
   if (dict['meta.title']) document.title = dict['meta.title'];
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc && dict['meta.description']) metaDesc.setAttribute('content', dict['meta.description']);
-  langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
-  langToggle.setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
+  langSwitch.dataset.lang = lang;
+  langBtns.forEach(btn => btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang)));
   try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
 }
 
-function getInitialLanguage() {
+function getSavedLanguage() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved === 'en' || saved === 'es') return saved;
   } catch (e) {}
-  return navigator.language && navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en';
+  return null;
 }
 
-let currentLang = getInitialLanguage();
+const savedLang = getSavedLanguage();
+let currentLang = savedLang || (navigator.language && navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en');
 applyLanguage(currentLang);
+// First visit: pulse the switch once so visitors notice the site is bilingual
+if (!savedLang) langSwitch.classList.add('lang-switch--hint');
 
-langToggle.addEventListener('click', () => {
-  currentLang = currentLang === 'en' ? 'es' : 'en';
+langBtns.forEach(btn => btn.addEventListener('click', () => {
+  langSwitch.classList.remove('lang-switch--hint');
+  if (btn.dataset.lang === currentLang) return;
+  currentLang = btn.dataset.lang;
   applyLanguage(currentLang);
-});
+}));
 
 document.getElementById('year').textContent = new Date().getFullYear();
 

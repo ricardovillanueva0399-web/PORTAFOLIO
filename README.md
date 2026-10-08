@@ -16,7 +16,8 @@ Just open `index.html` in a browser, or serve the folder with any static server.
 
 ## Editing content
 
-- All copy lives in `script.js` (`translations.en` / `translations.es`) and is bound to the markup with `data-i18n`.
+- All copy lives in `script.js` (`translations.en` / `translations.es`) and is bound to the markup with `data-i18n`
+  (text), `data-i18n-title` (tooltip) and `data-i18n-aria` (screen-reader label).
 - **New project:** copy an `<article class="project">` block in `index.html`, set its `data-topic`
   (`social`, `campaign`, `brand`, `content` or `web`; this drives the filter buttons; use several separated by a space, e.g. `campaign content`, to list the card under more than one filter. The first one sets the card's label), add its
   `title` / `desc` / `meta` strings (channel · deliverables) to both languages in `script.js`, and register

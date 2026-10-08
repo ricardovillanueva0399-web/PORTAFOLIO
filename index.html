@@ -18,17 +18,25 @@
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <a href="#top" class="logo">RVV</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
     <nav class="nav-links" id="navLinks">
       <a href="#expertise" data-i18n="nav.expertise">Expertise</a>
       <a href="#projects" data-i18n="nav.projects">Projects</a>
       <a href="#about" data-i18n="nav.about">Experience</a>
       <a href="#skills" data-i18n="nav.skills">Skills</a>
       <a href="#contact" class="nav-cta" data-i18n="nav.contact">Contact</a>
-      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">ES</button>
     </nav>
+    <div class="lang-switch" id="langSwitch" data-lang="en" role="group" aria-label="Language / Idioma">
+      <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+      <div class="lang-options">
+        <button type="button" class="lang-btn" data-lang="en" lang="en" title="English" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn" data-lang="es" lang="es" title="Español" aria-pressed="false">ES</button>
+      </div>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" data-i18n-aria="nav.menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -51,7 +59,7 @@
     </div>
   </section>
 
-  <section class="proof" aria-label="Highlights">
+  <section class="proof" aria-label="Highlights" data-i18n-aria="proof.label">
     <div class="wrap">
       <div class="stats">
         <div class="stat">
@@ -63,7 +71,7 @@
           <p class="stat-label" data-i18n="proof.stat2">Videos produced for DHM Tools' social and YouTube channels</p>
         </div>
         <div class="stat">
-          <span class="stat-num" data-count=".project">14</span>
+          <span class="stat-num" data-count=".project">16</span>
           <p class="stat-label" data-i18n="proof.stat3">Selected projects across campaigns, social, brand and photography</p>
         </div>
       </div>
@@ -163,7 +171,7 @@
       <h2 class="section-title" data-i18n="projects.title">Selected Work</h2>
       <p class="section-sub" data-i18n="projects.sub">Campaigns, social content, brand identity and photography for real clients. Filter by what you're looking for.</p>
 
-      <div class="filters" id="projectFilters" role="group" aria-label="Filter projects">
+      <div class="filters" id="projectFilters" role="group" aria-label="Filter projects" data-i18n-aria="filter.label">
         <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true" data-i18n="filter.all">All</button>
         <button type="button" class="filter-btn" data-filter="social" aria-pressed="false" data-i18n="topic.social">Social Media</button>
         <button type="button" class="filter-btn" data-filter="campaign" aria-pressed="false" data-i18n="topic.campaign">Campaigns &amp; Ads</button>
@@ -174,7 +182,7 @@
 
       <div class="grid-projects" id="projectGrid">
         <article class="project project--featured" id="case-dhm" data-topic="social" data-cat="Graphic Design" data-brand="dhm">
-          <a class="project-media" data-gallery="dhmDesign" href="assets/img/dhm-design-3-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="dhmDesign" href="assets/img/dhm-design-3-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/dhm-cover.jpg" alt="DHM Tools — posts de ofertas y producto para redes sociales" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -204,7 +212,7 @@
         </article>
 
         <article class="project" data-topic="social" data-cat="Graphic Design">
-          <a class="project-media" data-gallery="lozanoMesPatrio" href="assets/img/lozano-mes-patrio-2-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="lozanoMesPatrio" href="assets/img/lozano-mes-patrio-2-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/mes-patrio-cover.jpg" alt="Refrigeración Lozano — posts de la campaña Mes Patrio" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -217,7 +225,7 @@
         </article>
 
         <article class="project" data-topic="campaign" data-cat="Graphic Design">
-          <a class="project-media" data-gallery="lozanoAds" href="assets/img/lozano-anuncios-tonelaje-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="lozanoAds" href="assets/img/lozano-anuncios-tonelaje-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/lozano-ads-cover.jpg" alt="Refrigeración Lozano — serie de anuncios por tonelaje" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -230,7 +238,7 @@
         </article>
 
         <article class="project" data-topic="social content" data-cat="Graphic Design" data-brand="venecia">
-          <a class="project-media" data-gallery="venecia" href="assets/img/venecia-3-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="venecia" href="assets/img/venecia-3-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/venecia-cover.jpg" alt="Venecia Beauty Shop — promociones para redes sociales" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -243,7 +251,7 @@
         </article>
 
         <article class="project" data-topic="campaign content" data-cat="Photography" data-brand="practicubos">
-          <a class="project-media" data-gallery="skaters" href="assets/img/skaters-8-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="skaters" href="assets/img/skaters-8-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/skaters-cover.jpg" alt="Practicubos — campaña Skaters con muebles de cubos" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -256,7 +264,7 @@
         </article>
 
         <article class="project" data-topic="campaign" data-cat="Graphic Design">
-          <a class="project-media" data-gallery="lozanoCatalog" href="assets/img/lozano-revista-agosto-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="lozanoCatalog" href="assets/img/lozano-revista-agosto-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/lozano-catalog-cover.jpg" alt="Refrigeración Lozano — página de revista de agosto" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -269,7 +277,7 @@
         </article>
 
         <article class="project" data-topic="web" data-cat="UX/UI">
-          <a class="project-media" data-gallery="lozanoWeb" href="assets/img/lozano-inicio-web-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="lozanoWeb" href="assets/img/lozano-inicio-web-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/lozano-web-cover.jpg" alt="Refrigeración Lozano — página de inicio del sitio web" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -282,7 +290,7 @@
         </article>
 
         <article class="project" data-topic="brand" data-cat="Graphic Design">
-          <a class="project-media" data-gallery="zensano" href="assets/img/zensano-menu-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="zensano" href="assets/img/zensano-menu-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/zensano-cover.jpg" alt="ZenSano — menú y sistema de iconos" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -295,7 +303,7 @@
         </article>
 
         <article class="project" data-topic="brand" data-cat="Graphic Design">
-          <a class="project-media" data-gallery="teckel" href="assets/img/teckel-2-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="teckel" href="assets/img/teckel-2-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/teckel-cover.jpg" alt="Teckel Estudio — identidad de marca" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -308,7 +316,7 @@
         </article>
 
         <article class="project" data-topic="content" data-cat="Photography" data-brand="practicubos">
-          <a class="project-media" data-gallery="calma" href="assets/img/calma-home-1-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="calma" href="assets/img/calma-home-1-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/calma-home-cover.jpg" alt="Calma Home — mesa auxiliar de madera junto a un sillón" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -321,7 +329,7 @@
         </article>
 
         <article class="project" data-topic="content" data-cat="Photography" data-brand="cotorritos">
-          <a class="project-media" data-gallery="cotorritos" href="assets/img/cotorritos-bebidas-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="cotorritos" href="assets/img/cotorritos-bebidas-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/cotorritos-cover.jpg" alt="Cotorritos — fotografía de bebidas" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -334,7 +342,7 @@
         </article>
 
         <article class="project" data-topic="content" data-cat="Photography">
-          <a class="project-media" data-gallery="consentida" href="assets/img/consentida-evento-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="consentida" href="assets/img/consentida-evento-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/consentida-cover.jpg" alt="La Consentida — fotografía de evento" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -347,7 +355,7 @@
         </article>
 
         <article class="project" data-topic="content" data-cat="Photography">
-          <a class="project-media" data-gallery="tarocce" href="assets/img/tarocce-3-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="tarocce" href="assets/img/tarocce-3-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/tarocce-cover.jpg" alt="Tarocce — fotografía editorial" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -360,7 +368,7 @@
         </article>
 
         <article class="project" data-topic="content" data-cat="Photography">
-          <a class="project-media" data-gallery="armonico" href="assets/img/armonico-9-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="armonico" href="assets/img/armonico-9-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/armonico-escenario-cover.jpg" alt="ARMÓNICO — sillón y tornamesa frente al telón rojo del escenario" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -373,7 +381,7 @@
         </article>
 
         <article class="project" data-topic="content" data-cat="Photography">
-          <a class="project-media" data-gallery="korvinia" href="assets/img/korvinia-1-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="korvinia" href="assets/img/korvinia-1-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/korvinia-cover.jpg" alt="KORVINIA — mesas auxiliares de madera en tres acabados" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -386,7 +394,7 @@
         </article>
 
         <article class="project" data-topic="content" data-cat="Photography">
-          <a class="project-media" data-gallery="casas" href="assets/img/casas-2-full.jpg" target="_blank" rel="noopener" title="Ver galería">
+          <a class="project-media" data-gallery="casas" href="assets/img/casas-2-full.jpg" target="_blank" rel="noopener" title="View gallery" data-i18n-title="gallery.view">
             <img src="assets/img/casas-cover.jpg" alt="Fotografía arquitectónica residencial" loading="lazy">
             <span class="gallery-badge" aria-hidden="true"></span>
           </a>
@@ -402,11 +410,11 @@
   </section>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">&#10094;</button>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close" data-i18n-aria="lightbox.close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous" data-i18n-aria="lightbox.prev">&#10094;</button>
     <img class="lightbox-img" id="lightboxImg" src="" alt="">
     <p class="lightbox-caption" id="lightboxCaption"></p>
-    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">&#10095;</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next" data-i18n-aria="lightbox.next">&#10095;</button>
     <div class="lightbox-counter" id="lightboxCounter"></div>
   </div>
 
@@ -437,8 +445,8 @@
           </div>
           <div class="video-body">
             <span class="project-tag" data-i18n="work.card3.title">Video</span>
-            <h3 data-i18n="projects.dhmPubli.title">DHM Tools — Brand Ad</h3>
-            <p data-i18n="projects.dhmPubli.desc">Vertical ad piece for DHM Tools social media campaigns.</p>
+            <h3 data-i18n="projects.dhmPubli.title">REGO-FIX PGC 2506 — Long-Form Ad</h3>
+            <p data-i18n="projects.dhmPubli.desc">Extended vertical ad for the REGO-FIX PGC 2506 clamping system, produced with Hermle.</p>
           </div>
         </article>
 
@@ -495,7 +503,7 @@
         </article>
 
         <article class="video-card">
-          <a class="video-media" href="https://youtu.be/N_RsyqBEWCQ" target="_blank" rel="noopener" title="Ver en YouTube">
+          <a class="video-media" href="https://youtu.be/N_RsyqBEWCQ" target="_blank" rel="noopener" title="Watch on YouTube" data-i18n-title="video.watchYoutube">
             <img src="assets/video/dhm-yt-ktm-3vsf-poster.jpg" alt="KTM 3VSF" loading="lazy">
             <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="11" fill="rgba(16,22,43,0.55)"/><path d="M10 8l6 4-6 4z" fill="white"/></svg></span>
           </a>
@@ -507,7 +515,7 @@
         </article>
 
         <article class="video-card">
-          <a class="video-media video-media--wide" href="https://youtu.be/oJQb-z72P_o" target="_blank" rel="noopener" title="Ver en YouTube">
+          <a class="video-media video-media--wide" href="https://youtu.be/oJQb-z72P_o" target="_blank" rel="noopener" title="Watch on YouTube" data-i18n-title="video.watchYoutube">
             <img src="assets/video/dhm-yt-rectificadora-kent-poster.jpg" alt="Rectificadora CGS 618M de Kent USA" loading="lazy">
             <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="11" fill="rgba(16,22,43,0.55)"/><path d="M10 8l6 4-6 4z" fill="white"/></svg></span>
           </a>
@@ -519,7 +527,7 @@
         </article>
 
         <article class="video-card">
-          <a class="video-media" href="https://youtu.be/REu9yi24cR8" target="_blank" rel="noopener" title="Ver en YouTube">
+          <a class="video-media" href="https://youtu.be/REu9yi24cR8" target="_blank" rel="noopener" title="Watch on YouTube" data-i18n-title="video.watchYoutube">
             <img src="assets/video/dhm-yt-conocenos-poster.jpg" alt="DHM Tools — Conócenos" loading="lazy">
             <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="11" fill="rgba(16,22,43,0.55)"/><path d="M10 8l6 4-6 4z" fill="white"/></svg></span>
           </a>
@@ -531,7 +539,7 @@
         </article>
 
         <article class="video-card">
-          <a class="video-media" href="https://youtu.be/rIg2DRBKunM" target="_blank" rel="noopener" title="Ver en YouTube">
+          <a class="video-media" href="https://youtu.be/rIg2DRBKunM" target="_blank" rel="noopener" title="Watch on YouTube" data-i18n-title="video.watchYoutube">
             <img src="assets/video/dhm-yt-kencut-kennametal-poster.jpg" alt="KenCut de Kennametal" loading="lazy">
             <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="11" fill="rgba(16,22,43,0.55)"/><path d="M10 8l6 4-6 4z" fill="white"/></svg></span>
           </a>
@@ -543,7 +551,7 @@
         </article>
 
         <article class="video-card">
-          <a class="video-media" href="https://youtube.com/shorts/HVVZ8DQklmU" target="_blank" rel="noopener" title="Ver en YouTube">
+          <a class="video-media" href="https://youtube.com/shorts/HVVZ8DQklmU" target="_blank" rel="noopener" title="Watch on YouTube" data-i18n-title="video.watchYoutube">
             <img src="assets/video/dhm-yt-pgc-2506-poster.jpg" alt="REGO-FIX PGC 2506" loading="lazy">
             <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="11" fill="rgba(16,22,43,0.55)"/><path d="M10 8l6 4-6 4z" fill="white"/></svg></span>
           </a>
