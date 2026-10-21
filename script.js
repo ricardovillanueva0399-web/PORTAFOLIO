@@ -7,7 +7,6 @@ const translations = {
     'nav.projects': 'Projects',
     'meta.title': 'Ricardo Villanueva Valdez — Digital Marketing & Content',
     'meta.description': 'Digital marketing portfolio of Ricardo Villanueva Valdez: strategy, social media, content production and brand design for brands in Chihuahua, México.',
-    'hero.eyebrow': 'Digital Marketing Portfolio',
     'hero.tag1': 'Digital Marketing',
     'hero.tag2': 'Social Media & Content',
     'hero.tag3': 'Brand & Creative',
@@ -31,7 +30,6 @@ const translations = {
     'expertise.p5.title': 'E-commerce & Web',
     'expertise.p5.desc': 'Shopify channel management, e-commerce catalog UI, storefront and home page design.',
     'expertise.link': 'See related work',
-    'work.card3.title': 'Video',
     'projects.title': 'Selected Work',
     'projects.sub': "Campaigns, social content, brand identity and photography for real clients. Filter by what you're looking for.",
     'filter.all': 'All',
@@ -142,8 +140,6 @@ const translations = {
     'exp3.b2': 'Handled scriptwriting and video editing for digital campaigns.',
     'exp3.b3': 'Designed editorial menus in InDesign with a custom dietary-icon system.',
     'exp3.b4': 'Delivered outdoor advertising and branding across multiple brands.',
-    'highlight.title': 'Marketing highlight',
-    'highlight.desc': 'Directed digital strategy for an e-commerce catalog of 2,000+ products, using Google Ads and Search Console to optimize reach, and Meta and Shopify analytics to segment audiences — while owning full brand management from identity design to editorial art direction.',
     'skills.title': 'Skills & Tools',
     'skills.group1': 'Design',
     'skills.group2': 'Photo & Video',
@@ -161,7 +157,6 @@ const translations = {
     'nav.projects': 'Proyectos',
     'meta.title': 'Ricardo Villanueva Valdez — Marketing Digital y Contenido',
     'meta.description': 'Portafolio de marketing digital de Ricardo Villanueva Valdez: estrategia, redes sociales, producción de contenido y diseño de marca para marcas en Chihuahua, México.',
-    'hero.eyebrow': 'Portafolio de Marketing Digital',
     'hero.tag1': 'Marketing Digital',
     'hero.tag2': 'Redes Sociales y Contenido',
     'hero.tag3': 'Marca y Creatividad',
@@ -185,7 +180,6 @@ const translations = {
     'expertise.p5.title': 'E-commerce y Web',
     'expertise.p5.desc': 'Gestión del canal Shopify, UI de catálogo de e-commerce, diseño de tienda y de página de inicio.',
     'expertise.link': 'Ver trabajos relacionados',
-    'work.card3.title': 'Video',
     'projects.title': 'Trabajo Seleccionado',
     'projects.sub': 'Campañas, contenido para redes, identidad de marca y fotografía para clientes reales. Filtra por lo que buscas.',
     'filter.all': 'Todo',
@@ -296,8 +290,6 @@ const translations = {
     'exp3.b2': 'Me encargué de guionismo y edición de video para campañas digitales.',
     'exp3.b3': 'Diseñé menús editoriales en InDesign con un sistema de iconografía personalizado para restricciones alimenticias.',
     'exp3.b4': 'Realicé campañas de publicidad exterior y branding para varias marcas.',
-    'highlight.title': 'Destacado de marketing',
-    'highlight.desc': 'Dirigí la estrategia digital de un catálogo de e-commerce de más de 2,000 productos, usando Google Ads y Search Console para optimizar el alcance, y analítica de Meta y Shopify para segmentar audiencias — a la par de la gestión completa de marca, desde la identidad hasta la dirección de arte editorial.',
     'skills.title': 'Habilidades y Herramientas',
     'skills.group1': 'Diseño',
     'skills.group2': 'Foto y Video',
@@ -308,32 +300,6 @@ const translations = {
     'footer.built': 'Hecho con HTML/CSS/JS puro.',
   },
 };
-
-// Hero intro: split the name into letters so each one can rise in, then start the sequence
-const hero = document.querySelector('.hero');
-const heroTitle = hero.querySelector('h1');
-const heroName = heroTitle.textContent.trim();
-heroTitle.setAttribute('aria-label', heroName);
-heroTitle.textContent = '';
-let charIndex = 0;
-heroName.split(' ').forEach((word, w) => {
-  if (w) heroTitle.append(' ');
-  const wordEl = document.createElement('span');
-  wordEl.className = 'word';
-  wordEl.setAttribute('aria-hidden', 'true');
-  [...word].forEach(ch => {
-    const charEl = document.createElement('span');
-    charEl.className = 'char';
-    charEl.style.setProperty('--i', charIndex++);
-    charEl.textContent = ch;
-    wordEl.append(charEl);
-  });
-  heroTitle.append(wordEl);
-});
-heroTitle.classList.add('is-split');
-// Give the display font a moment so letters don't swap typeface mid-animation
-Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 1000))])
-  .then(() => hero.classList.add('is-playing'));
 
 const langToggle = document.getElementById('langToggle');
 const STORAGE_KEY = 'rvv-lang';
@@ -392,27 +358,10 @@ navLinks.querySelectorAll('a').forEach(link => {
   });
 });
 
-// Nav shadow on scroll
-const navEl = document.getElementById('nav');
-let lastScrollState = false;
-function syncNavShadow() {
-  const scrolled = window.scrollY > 8;
-  if (scrolled !== lastScrollState) {
-    navEl.classList.toggle('nav--scrolled', scrolled);
-    lastScrollState = scrolled;
-  }
-}
-syncNavShadow();
-window.addEventListener('scroll', syncNavShadow, { passive: true });
-
 // Scroll-reveal animations
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-['.grid-work', '.grid-projects', '.grid-videos', '.skills-grid', '.timeline', '.stats'].forEach(sel => {
-  const el = document.querySelector(sel);
-  if (el) el.classList.add('reveal-group');
-});
 const revealTargets = document.querySelectorAll(
-  '.card, .project, .video-card, .skill-group, .timeline-item, .highlight-box, .section-title, .stat, .brands'
+  '.card, .project, .video-card, .skill-group, .timeline-item, .section-title, .stat, .brands'
 );
 revealTargets.forEach(el => el.classList.add('reveal'));
 
