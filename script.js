@@ -309,6 +309,32 @@ const translations = {
   },
 };
 
+// Hero intro: split the name into letters so each one can rise in, then start the sequence
+const hero = document.querySelector('.hero');
+const heroTitle = hero.querySelector('h1');
+const heroName = heroTitle.textContent.trim();
+heroTitle.setAttribute('aria-label', heroName);
+heroTitle.textContent = '';
+let charIndex = 0;
+heroName.split(' ').forEach((word, w) => {
+  if (w) heroTitle.append(' ');
+  const wordEl = document.createElement('span');
+  wordEl.className = 'word';
+  wordEl.setAttribute('aria-hidden', 'true');
+  [...word].forEach(ch => {
+    const charEl = document.createElement('span');
+    charEl.className = 'char';
+    charEl.style.setProperty('--i', charIndex++);
+    charEl.textContent = ch;
+    wordEl.append(charEl);
+  });
+  heroTitle.append(wordEl);
+});
+heroTitle.classList.add('is-split');
+// Give the display font a moment so letters don't swap typeface mid-animation
+Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 1000))])
+  .then(() => hero.classList.add('is-playing'));
+
 const langToggle = document.getElementById('langToggle');
 const STORAGE_KEY = 'rvv-lang';
 
