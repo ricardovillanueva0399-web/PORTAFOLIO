@@ -27,7 +27,6 @@ const translations = {
     'hero.cta2': 'Get in touch',
     'proof.stat1': 'Products in the e-commerce catalog I led digital strategy for',
     'proof.stat2': "Videos produced for DHM Tools' social and YouTube channels",
-    'proof.stat3': 'Selected projects across campaigns, social, brand and photography',
     'proof.brands': "Brands I've worked with",
     'expertise.title': 'Marketing expertise',
     'expertise.sub': 'Strategy, content and measurement under one roof — I plan the channel, make the creative and read the numbers.',
@@ -187,7 +186,6 @@ const translations = {
     'hero.cta2': 'Contáctame',
     'proof.stat1': 'Productos en el catálogo de e-commerce cuya estrategia digital dirigí',
     'proof.stat2': 'Videos producidos para las redes y el canal de YouTube de DHM Tools',
-    'proof.stat3': 'Proyectos seleccionados de campañas, redes sociales, marca y fotografía',
     'proof.brands': 'Marcas con las que he trabajado',
     'expertise.title': 'Especialidades de marketing',
     'expertise.sub': 'Estrategia, contenido y medición en un solo lugar — planeo el canal, hago la parte creativa y leo los números.',
@@ -593,7 +591,7 @@ function showPrev() {
 
 // Caption = the title of the card the trigger sits in (already in the current language)
 function captionFor(el) {
-  const title = el.closest('.project')?.querySelector('h3') || document.querySelector('main h1');
+  const title = el.closest('.project')?.querySelector('h2, h3') || document.querySelector('main h1');
   return title ? title.textContent : '';
 }
 

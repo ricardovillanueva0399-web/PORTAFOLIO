@@ -17,7 +17,7 @@
 }
 
 *,*::before,*::after{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);}
 body{
   margin:0;min-height:100vh;min-height:100svh;
   display:flex;flex-direction:column;
@@ -63,7 +63,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--neon);outline-offse
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--nav-h);}
 .logo{font-family:var(--ff-display);font-weight:800;font-stretch:75%;font-size:1.35rem;letter-spacing:0.01em;text-decoration:none;}
 .nav-links{display:flex;align-items:center;gap:28px;}
-.nav-links a{text-decoration:none;font-weight:500;font-size:0.9rem;color:var(--muted);transition:color .2s ease;}
+.nav-links a{white-space:nowrap;text-decoration:none;font-weight:500;font-size:0.9rem;color:var(--muted);transition:color .2s ease;}
 .nav-links a:hover,.nav-links a[aria-current]{color:var(--ink);}
 .nav-links a[aria-current]{text-decoration:underline;text-decoration-color:var(--neon);text-underline-offset:6px;text-decoration-thickness:1px;}
 .nav-links a.nav-cta{color:var(--neon);}
@@ -86,7 +86,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--neon);outline-offse
 .tags{display:flex;flex-wrap:wrap;margin:0 0 24px;}
 .tag{font-weight:500;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);}
 .tag:not(:last-child)::after{content:'/';margin:0 12px;opacity:0.5;}
-.intro-name{font-size:clamp(3.2rem,11vw,9rem);color:#f4f4f4;margin:0 0 32px;}
+.intro-name{font-size:clamp(3.2rem,min(11vw,17vh),9rem);color:#f4f4f4;margin:0 0 32px;}
 .intro-role{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--ink-soft);max-width:600px;margin:0 0 36px;}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
 
@@ -104,7 +104,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--neon);outline-offse
 .section{padding:112px 0;}
 .section--alt{border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .section--alt + .section--alt{border-top:0;}
-.section--flush{padding-top:0;}
+.section.section--flush{padding-top:0;}
 .section.page{padding:88px 0 112px;}
 .page-title{font-size:clamp(2.8rem,8vw,6rem);margin:0 0 24px;}
 .section-title{font-size:clamp(2rem,4.5vw,3.25rem);line-height:1;margin:0 0 16px;}
@@ -181,14 +181,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--neon);outline-offse
 .project-media:hover .gallery-badge{opacity:1;}
 .project-body{display:flex;flex-direction:column;flex:1;padding-top:18px;}
 .project-tag{font-weight:500;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:8px;}
-.project-body h3{font-size:1.05rem;font-weight:600;letter-spacing:-0.01em;margin:0 0 6px;}
+.project-body :is(h2,h3){font-size:1.05rem;font-weight:600;letter-spacing:-0.01em;margin:0 0 6px;}
 .project-body p{margin:0;color:var(--muted);font-size:0.92rem;}
-.project-body .project-meta{margin-top:auto;padding-top:12px;font-size:0.8rem;opacity:0.7;}
+.project-body .project-meta{margin-top:auto;padding-top:12px;font-size:0.8rem;}
 
 /* Featured case card (Work) */
 .project--featured{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:0 48px;align-items:center;}
 .project--featured .project-body{padding:0;}
-.project--featured h3{font-family:var(--ff-display);font-weight:800;font-stretch:75%;font-size:clamp(1.8rem,3.2vw,2.6rem);letter-spacing:0;line-height:.98;margin-bottom:16px;}
+.project--featured :is(h2,h3){font-family:var(--ff-display);font-weight:800;font-stretch:75%;font-size:clamp(1.8rem,3.2vw,2.6rem);letter-spacing:0;line-height:.98;margin-bottom:16px;}
 .project--featured .project-body > p{font-size:1rem;}
 .case-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin-top:28px;}
 .case-btn{
@@ -324,9 +324,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--neon);outline-offse
   .tags{flex-direction:column;gap:6px;}
   .tag:not(:last-child)::after{content:none;}
 }
+@media (max-height:700px){
+  .intro{padding:40px 0;}
+}
 @media (max-width:480px){
   .wrap{padding:0 20px;}
   .nav-links{gap:16px;}
   .nav-links a,.lang-toggle{font-size:0.82rem;}
   .logo{font-size:1.2rem;}
+}
+@media (max-width:360px){
+  .nav-inner{gap:12px;}
+  .nav-links{gap:12px;}
 }

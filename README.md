@@ -34,10 +34,10 @@ Just open `index.html` in a browser, or serve the folder with any static server.
 
 - All copy lives in `script.js` (`translations.en` / `translations.es`) and is bound to the markup with `data-i18n`.
 - **New project:** copy an `<article class="project">` block in `work.html`, set its `data-topic`
-  (`social`, `campaign`, `brand`, `content` or `web`; this drives the filter buttons; use several separated by a space, e.g. `campaign content`, to list the card under more than one filter. The first one sets the card's label), add its
+  (`social`, `campaign`, `brand`, `content` or `web`; this drives the filter buttons; use several separated by a space, e.g. `campaign content`, to list the card under more than one filter; the label shown on the card is its `project-tag` span), add its
   `title` / `desc` / `meta` strings (channel · deliverables) to both languages in `script.js`, and register
   its gallery images in the `galleries` object. Put the piece shown on the cover first in the gallery so the
-  lightbox opens on it. To feature it on Home, copy the same block into `index.html` (Home shows 3).
+  lightbox opens on it. To feature it on Home, copy the same block into `index.html` (Home shows 3; there the title is an `h3`).
 - **Covers** are 960×720 (4:3) JPGs named `*-cover.jpg`. Design work is shown whole, 2–3 pieces of the
   series on a backdrop in the client's color; photography is a full-bleed 4:3 crop.
 - **New video:** copy a `.video-card` in `dhm.html`; the "videos" figure counts them automatically.
