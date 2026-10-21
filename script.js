@@ -1,12 +1,24 @@
 const translations = {
   en: {
-    'nav.about': 'Experience',
-    'nav.skills': 'Skills',
+    'nav.work': 'Work',
+    'nav.about': 'About',
     'nav.contact': 'Contact',
-    'nav.expertise': 'Expertise',
-    'nav.projects': 'Projects',
-    'meta.title': 'Ricardo Villanueva Valdez — Digital Marketing & Content',
-    'meta.description': 'Digital marketing portfolio of Ricardo Villanueva Valdez: strategy, social media, content production and brand design for brands in Chihuahua, México.',
+    'title.home': 'Ricardo Villanueva Valdez — Digital Marketing & Content',
+    'desc.home': 'Digital marketing portfolio of Ricardo Villanueva Valdez: strategy, social media, content production and brand design for brands in Chihuahua, México.',
+    'title.work': 'Work — Ricardo Villanueva Valdez',
+    'desc.work': 'Selected work by Ricardo Villanueva Valdez: social media, campaigns and ads, brand and editorial design, photography and web.',
+    'title.dhm': 'DHM Tools case — Ricardo Villanueva Valdez',
+    'desc.dhm': 'Case study: end-to-end digital marketing for DHM Tools — strategy, social media, content production and the Shopify store.',
+    'title.about': 'About — Ricardo Villanueva Valdez',
+    'desc.about': 'About Ricardo Villanueva Valdez: marketing expertise, experience, skills and tools.',
+    'title.contact': 'Contact — Ricardo Villanueva Valdez',
+    'desc.contact': 'Contact Ricardo Villanueva Valdez for freelance, collaborations and full-time roles in digital marketing, social media and content.',
+    'home.featured': 'Selected work',
+    'home.allWork': 'All projects',
+    'about.pageTitle': 'About',
+    'case.viewCase': 'View case study',
+    'case.back': 'All projects',
+    'footer.email': 'Email',
     'hero.tag1': 'Digital Marketing',
     'hero.tag2': 'Social Media & Content',
     'hero.tag3': 'Brand & Creative',
@@ -30,7 +42,6 @@ const translations = {
     'expertise.p5.title': 'E-commerce & Web',
     'expertise.p5.desc': 'Shopify channel management, e-commerce catalog UI, storefront and home page design.',
     'expertise.link': 'See related work',
-    'projects.title': 'Selected Work',
     'projects.sub': "Campaigns, social content, brand identity and photography for real clients. Filter by what you're looking for.",
     'filter.all': 'All',
     'topic.social': 'Social Media',
@@ -147,16 +158,27 @@ const translations = {
     'skills.group4': 'Marketing & Analytics',
     'contact.title': "Let's work together",
     'contact.sub': 'Open to freelance, collaborations and full-time roles in digital marketing, social media and content.',
-    'footer.built': 'Built with plain HTML/CSS/JS.',
   },
   es: {
-    'nav.about': 'Experiencia',
-    'nav.skills': 'Habilidades',
+    'nav.work': 'Proyectos',
+    'nav.about': 'Sobre mí',
     'nav.contact': 'Contacto',
-    'nav.expertise': 'Especialidades',
-    'nav.projects': 'Proyectos',
-    'meta.title': 'Ricardo Villanueva Valdez — Marketing Digital y Contenido',
-    'meta.description': 'Portafolio de marketing digital de Ricardo Villanueva Valdez: estrategia, redes sociales, producción de contenido y diseño de marca para marcas en Chihuahua, México.',
+    'title.home': 'Ricardo Villanueva Valdez — Marketing Digital y Contenido',
+    'desc.home': 'Portafolio de marketing digital de Ricardo Villanueva Valdez: estrategia, redes sociales, producción de contenido y diseño de marca para marcas en Chihuahua, México.',
+    'title.work': 'Proyectos — Ricardo Villanueva Valdez',
+    'desc.work': 'Trabajo seleccionado de Ricardo Villanueva Valdez: redes sociales, campañas y anuncios, marca y diseño editorial, fotografía y web.',
+    'title.dhm': 'Caso DHM Tools — Ricardo Villanueva Valdez',
+    'desc.dhm': 'Caso de estudio: marketing digital de principio a fin para DHM Tools — estrategia, redes sociales, producción de contenido y la tienda Shopify.',
+    'title.about': 'Sobre mí — Ricardo Villanueva Valdez',
+    'desc.about': 'Sobre Ricardo Villanueva Valdez: especialidades de marketing, experiencia, habilidades y herramientas.',
+    'title.contact': 'Contacto — Ricardo Villanueva Valdez',
+    'desc.contact': 'Contacta a Ricardo Villanueva Valdez para freelance, colaboraciones y puestos de tiempo completo en marketing digital, redes sociales y contenido.',
+    'home.featured': 'Trabajo destacado',
+    'home.allWork': 'Ver todos los proyectos',
+    'about.pageTitle': 'Sobre mí',
+    'case.viewCase': 'Ver caso completo',
+    'case.back': 'Todos los proyectos',
+    'footer.email': 'Correo',
     'hero.tag1': 'Marketing Digital',
     'hero.tag2': 'Redes Sociales y Contenido',
     'hero.tag3': 'Marca y Creatividad',
@@ -180,7 +202,6 @@ const translations = {
     'expertise.p5.title': 'E-commerce y Web',
     'expertise.p5.desc': 'Gestión del canal Shopify, UI de catálogo de e-commerce, diseño de tienda y de página de inicio.',
     'expertise.link': 'Ver trabajos relacionados',
-    'projects.title': 'Trabajo Seleccionado',
     'projects.sub': 'Campañas, contenido para redes, identidad de marca y fotografía para clientes reales. Filtra por lo que buscas.',
     'filter.all': 'Todo',
     'topic.social': 'Redes Sociales',
@@ -297,9 +318,22 @@ const translations = {
     'skills.group4': 'Marketing y Analítica',
     'contact.title': 'Trabajemos juntos',
     'contact.sub': 'Disponible para freelance, colaboraciones y roles de tiempo completo en marketing digital, redes sociales y contenido.',
-    'footer.built': 'Hecho con HTML/CSS/JS puro.',
   },
 };
+
+const page = document.body.dataset.page;
+
+// Links shared before the site was split into pages pointed at #anchors on the home page
+const LEGACY_ANCHORS = {
+  '#projects': 'work.html',
+  '#case-dhm': 'dhm.html',
+  '#video-reel': 'dhm.html#videos',
+  '#expertise': 'about.html#expertise',
+  '#about': 'about.html#experience',
+  '#skills': 'about.html#skills',
+  '#contact': 'contact.html',
+};
+if (page === 'home' && LEGACY_ANCHORS[location.hash]) location.replace(LEGACY_ANCHORS[location.hash]);
 
 const langToggle = document.getElementById('langToggle');
 const STORAGE_KEY = 'rvv-lang';
@@ -311,9 +345,9 @@ function applyLanguage(lang) {
     if (dict[key]) el.textContent = dict[key];
   });
   document.documentElement.lang = lang;
-  if (dict['meta.title']) document.title = dict['meta.title'];
+  if (dict[`title.${page}`]) document.title = dict[`title.${page}`];
   const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc && dict['meta.description']) metaDesc.setAttribute('content', dict['meta.description']);
+  if (metaDesc && dict[`desc.${page}`]) metaDesc.setAttribute('content', dict[`desc.${page}`]);
   langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
   langToggle.setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
   try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
@@ -337,31 +371,16 @@ langToggle.addEventListener('click', () => {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Stats that count items on the page stay accurate as projects/videos are added
+// Stats that count items on the page stay accurate as videos are added
 document.querySelectorAll('[data-count]').forEach(el => {
   const total = document.querySelectorAll(el.dataset.count).length;
   if (total) el.textContent = total;
 });
 
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-
-navToggle.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', String(isOpen));
-});
-
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  });
-});
-
 // Scroll-reveal animations
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealTargets = document.querySelectorAll(
-  '.card, .project, .video-card, .skill-group, .timeline-item, .section-title, .stat, .brands'
+  '.card, .project, .video-card, .skill-group, .timeline-item, .section-title, .stat, .brands, .case-cover, .case-points'
 );
 revealTargets.forEach(el => el.classList.add('reveal'));
 
@@ -379,7 +398,7 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
   revealTargets.forEach(el => revealObserver.observe(el));
 }
 
-// Project filters
+// Project filters (Work page). Links from About arrive as work.html?topic=<topic>
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('#projectGrid .project');
 
@@ -395,11 +414,11 @@ function applyFilter(topic) {
   });
 }
 
-filterBtns.forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
-// Links elsewhere on the page (expertise cards, experience) that jump to a pre-filtered project grid
-document.querySelectorAll('[data-filter-link]').forEach(link => {
-  link.addEventListener('click', () => applyFilter(link.dataset.filterLink));
-});
+if (filterBtns.length) {
+  filterBtns.forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
+  const requested = new URLSearchParams(location.search).get('topic');
+  if (requested && [...filterBtns].some(btn => btn.dataset.filter === requested)) applyFilter(requested);
+}
 
 // Project galleries (lightbox)
 const galleries = {
@@ -574,7 +593,7 @@ function showPrev() {
 
 // Caption = the title of the card the trigger sits in (already in the current language)
 function captionFor(el) {
-  const title = el.closest('.project')?.querySelector('h3');
+  const title = el.closest('.project')?.querySelector('h3') || document.querySelector('main h1');
   return title ? title.textContent : '';
 }
 
@@ -592,15 +611,18 @@ document.querySelectorAll('[data-open-gallery]').forEach(btn => {
   btn.addEventListener('click', () => openLightbox(btn.dataset.openGallery, captionFor(btn)));
 });
 
-lightboxClose.addEventListener('click', closeLightbox);
-lightboxNext.addEventListener('click', showNext);
-lightboxPrev.addEventListener('click', showPrev);
-lightbox.addEventListener('click', e => {
-  if (e.target === lightbox) closeLightbox();
-});
-document.addEventListener('keydown', e => {
-  if (!lightbox.classList.contains('is-open')) return;
-  if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowRight') showNext();
-  if (e.key === 'ArrowLeft') showPrev();
-});
+// About and Contact have no galleries, so no lightbox markup
+if (lightbox) {
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxNext.addEventListener('click', showNext);
+  lightboxPrev.addEventListener('click', showPrev);
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+}
