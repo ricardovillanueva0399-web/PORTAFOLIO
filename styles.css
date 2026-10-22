@@ -99,7 +99,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--neon);outline-offse
 }
 .btn-primary{background:var(--neon);color:var(--black);}
 .btn-primary:hover{background:var(--mint);}
-.btn-ghost{color:var(--ink);border:1px solid var(--border);}
+.btn-ghost{color:var(--ink);background:var(--black);border:1px solid var(--border);}
 .btn-ghost:hover{border-color:var(--ink);}
 
 /* Sections and page heads */
