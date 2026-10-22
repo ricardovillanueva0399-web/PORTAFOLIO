@@ -317,17 +317,34 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--neon);outline-offse
 @media (max-width:720px){
   .section{padding:80px 0;}
   .section.page{padding:56px 0 80px;}
-  .intro{padding:56px 0;}
+  /* Phones: the intro hugs its content instead of filling the screen, so no empty bands */
+  .intro{min-height:0;padding:56px 0 64px;}
+  .intro-name{margin-bottom:24px;}
+  .intro-role{margin-bottom:28px;}
   .card{grid-template-columns:2.5rem minmax(0,1fr);row-gap:8px;padding:28px 0;}
   .card-media{grid-row:1;}
   .card h3,.card > p,.card-link{grid-column:2;grid-row:auto;}
 }
 @media (max-width:640px){
-  .tags{flex-direction:column;gap:6px;}
+  .tags{flex-direction:column;gap:2px;margin-bottom:20px;}
+  .tag{font-size:0.72rem;}
   .tag:not(:last-child)::after{content:none;}
 }
 @media (max-height:700px){
   .intro{padding:40px 0;}
+}
+/* Small phones (320x568): tighter spacing so the buttons stay on the first screen */
+@media (max-width:360px) and (max-height:600px){
+  .intro{padding-top:24px;}
+  .intro-name{margin-bottom:20px;}
+  .intro-role{margin-bottom:24px;}
+}
+/* Landscape phones: keep the buttons on the first screen */
+@media (max-height:500px){
+  .intro{padding:20px 0;}
+  .tags{margin-bottom:12px;}
+  .intro-name{margin-bottom:16px;}
+  .intro-role{max-width:680px;margin-bottom:20px;}
 }
 @media (max-width:480px){
   .wrap{padding:0 20px;}
@@ -338,4 +355,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--neon);outline-offse
 @media (max-width:360px){
   .nav-inner{gap:12px;}
   .nav-links{gap:12px;}
+  /* Both buttons on one line at 320px */
+  .hero-actions{gap:10px;}
+  .hero-actions .btn{padding:12px 20px;}
 }
