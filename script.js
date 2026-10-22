@@ -96,6 +96,11 @@ const translations = {
     'projects.dhmPgc.title': 'REGO-FIX PGC 2506',
     'projects.dhmPgc.desc': 'Product YouTube Short for the REGO-FIX PGC 2506 clamping system.',
     'video.watchYoutube': 'Watch on YouTube',
+    'ui.gallery': 'View gallery',
+    'ui.close': 'Close',
+    'ui.prev': 'Previous',
+    'ui.next': 'Next',
+    'ui.filter': 'Filter projects',
     'projects.teckel.title': 'Teckel Estudio — Brand Identity',
     'projects.teckel.desc': 'Visual identity for a creative photo, video and design studio: logo, social banner, services flyer and poster.',
     'projects.teckel.meta': 'Brand identity · 5 pieces',
@@ -255,6 +260,11 @@ const translations = {
     'projects.dhmPgc.title': 'REGO-FIX PGC 2506',
     'projects.dhmPgc.desc': 'YouTube Short de producto para el sistema de sujeción PGC 2506 de REGO-FIX.',
     'video.watchYoutube': 'Ver en YouTube',
+    'ui.gallery': 'Ver galería',
+    'ui.close': 'Cerrar',
+    'ui.prev': 'Anterior',
+    'ui.next': 'Siguiente',
+    'ui.filter': 'Filtrar proyectos',
     'projects.teckel.title': 'Teckel Estudio — Identidad de Marca',
     'projects.teckel.desc': 'Identidad visual para un estudio creativo de foto, video y diseño: logotipo, banner para redes, flyer de servicios y póster.',
     'projects.teckel.meta': 'Identidad de marca · 5 piezas',
@@ -341,6 +351,15 @@ function applyLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (dict[key]) el.textContent = dict[key];
+  });
+  // Accessible names and tooltips follow the language too
+  document.querySelectorAll('[data-i18n-label]').forEach(el => {
+    const text = dict[el.dataset.i18nLabel];
+    if (text) el.setAttribute('aria-label', text);
+  });
+  document.querySelectorAll('[data-i18n-title]').forEach(el => {
+    const text = dict[el.dataset.i18nTitle];
+    if (text) el.title = text;
   });
   document.documentElement.lang = lang;
   if (dict[`title.${page}`]) document.title = dict[`title.${page}`];
