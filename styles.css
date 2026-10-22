@@ -81,7 +81,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--neon);outline-offse
   display:flex;flex-direction:column;justify-content:center;
   padding:72px 0;border-bottom:1px solid var(--border);
 }
-.intro{position:relative;overflow:hidden;isolation:isolate;}
+.intro{position:relative;overflow:hidden;isolation:isolate;touch-action:pan-y pinch-zoom;}
 .intro-shapes{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
 .intro-inner{width:100%;animation:fadeUp .9s var(--ease) both;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}}
