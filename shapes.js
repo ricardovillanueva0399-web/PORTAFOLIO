@@ -8,9 +8,6 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const coarsePointer = window.matchMedia('(pointer: coarse)');
 
-  // Prototype switch: ?lava=drift keeps the blobs rising and sinking; the default rests until pushed
-  const DRIFT = new URLSearchParams(location.search).get('lava') === 'drift';
-
   // Blobs as fractions of the hero: x, y and radius (of the shorter side). Weighted to the right of the copy
   const LAYOUT = [
     [0.80, 0.30, 0.11],
@@ -160,8 +157,6 @@
       const hx = fx * width;
       const hy = fy * height;
       return {
-        bx: hx,
-        by: hy,
         hx,
         hy,
         r: fr * unit,
@@ -169,9 +164,6 @@
         y: old ? hy + old.y - old.hy : born ? hy : hy + height * RISE,
         vx: 0,
         vy: 0,
-        // Each blob drifts on its own slow cycle
-        phase: i * 2.399,
-        period: 26000 + ((i * 7919) % 9) * 2600,
         weight: 1.25 - fr * 2,
       };
     });
@@ -182,7 +174,7 @@
     blobs.forEach((b, i) => {
       blobData[i * 3] = b.x * dpr;
       blobData[i * 3 + 1] = b.y * dpr;
-      blobData[i * 3 + 2] = b.r * dpr * b.breath;
+      blobData[i * 3 + 2] = b.r * dpr;
     });
     const rect = canvas.getBoundingClientRect();
     const hollow = DENT[coarsePointer.matches ? 1 : 0] * dpr * dent;
@@ -214,13 +206,6 @@
     if (Math.abs(target - dent) < 0.002) dent = target;
     let moving = now - born < 1600 || dent !== target;
     for (const b of blobs) {
-      if (DRIFT) {
-        // Lava rises and sinks slowly around its place, swaying a little sideways
-        const t = (now / b.period) * Math.PI * 2 + b.phase;
-        b.hx = b.bx + Math.sin(t * 0.7) * b.r * 0.35;
-        b.hy = b.by + Math.sin(t) * height * 0.12;
-        b.breath = 1 + Math.sin(t * 1.3) * 0.06;
-      } else b.breath = 1;
       let ax = (b.hx - b.x) * SPRING;
       let ay = (b.hy - b.y) * SPRING;
       if (near) {
@@ -242,17 +227,16 @@
     }
     const t = (now - born) / 1400;
     render(t >= 1 ? 1 : 1 - (1 - t) ** 3);
-    // The resting variant sleeps once everything has settled, until the pointer comes near again
-    if (DRIFT || moving) rafId = requestAnimationFrame(frame);
+    // Sleep once everything has settled, until the pointer comes near again
+    if (moving) rafId = requestAnimationFrame(frame);
     else rafId = 0;
   }
 
   function drawStill() {
     blobs.forEach(b => {
-      b.x = b.hx = b.bx;
-      b.y = b.hy = b.by;
+      b.x = b.hx;
+      b.y = b.hy;
       b.vx = b.vy = 0;
-      b.breath = 1;
     });
     dent = 0;
     render(1);
@@ -279,7 +263,6 @@
     build();
     if (reduceMotion.matches) drawStill();
     else {
-      blobs.forEach(b => (b.breath = b.breath || 1));
       render(1);
       start();
     }
