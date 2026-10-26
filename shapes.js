@@ -1,78 +1,139 @@
-// Home: a field of small green shapes behind the name that moves away from the pointer
+// Home: green lava-lamp blobs behind the name that merge, carry a grainy gradient and move away from the pointer
 (() => {
   const intro = document.querySelector('.intro');
   const canvas = intro && intro.querySelector('.intro-shapes');
   const copy = intro && intro.querySelector('.intro-inner');
-  const ctx = canvas && canvas.getContext && canvas.getContext('2d');
-  if (!ctx || !copy) return;
+  const gl = canvas && canvas.getContext && canvas.getContext('webgl', { antialias: false, premultipliedAlpha: true });
+  if (!gl || !copy) return;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const coarsePointer = window.matchMedia('(pointer: coarse)');
 
-  const REST = [106, 242, 102];     // #6AF266 at rest
-  const LIT = [161, 255, 158];      // #A1FF9E while pushed away
-  const ACCENT = [7, 140, 3];       // #078C03, the large ring
-  // A repeating sequence along the grid diagonals reads as designed, not random
-  const PATTERN = ['cross', 'dot', 'ring', 'cross', 'square', 'dot', 'cross', 'triangle'];
-  const GAP = [56, 42];             // px between shapes: desktop, phone
-  const MAX_SHAPES = 700;           // the gap widens on very large screens
-  const SIZE = 8;                   // px, every small shape
-  const LINE = 1.25;
-  const ALPHA = 0.3;                // at rest
-  const GLOW = 0.6;                 // extra opacity when pushed away
-  const TEXT_DIM = 0.3;             // opacity multiplier over the copy
-  const BUTTON_DIM = 0.12;          // and over the buttons
-  const FEATHER = 64;               // px over which that dimming fades out
-  const EDGE = 56;                  // px faded at the top and bottom of the screen
-  const RADIUS = [220, 150];        // px pushed away around a mouse / a finger
+  // Blobs as fractions of the hero: x, y and radius (of the shorter side). Weighted to the right of the copy
+  const LAYOUT = [
+    [0.80, 0.30, 0.11],
+    [0.88, 0.43, 0.07],
+    [0.72, 0.64, 0.06],
+    [0.87, 0.76, 0.10],
+    [0.94, 0.17, 0.045],
+    [0.64, 0.86, 0.04],
+    [0.96, 0.60, 0.05],
+  ];
+  const PHONE_LAYOUT = [
+    [0.94, 0.07, 0.17],
+    [0.74, 0.03, 0.08],
+    [0.88, 0.97, 0.19],
+    [0.62, 1.00, 0.09],
+    [0.12, 1.00, 0.08],
+    [1.00, 0.80, 0.07],
+  ];
+  const TEXT_DIM = 0.32;            // opacity over the copy
+  const FEATHER = 90;               // px over which that dimming fades out
+  const EDGE = 48;                  // px faded at the top and bottom of the screen
+  const RADIUS = [180, 120];        // px pushed away around a mouse / a finger
+  const DENT = [26, 20];            // px of the hollow the pointer presses into the liquid
   const PUSH = 2.2;
-  const SPRING = 0.015;
+  const SPRING = 0.012;
   const DAMPING = 0.9;
+  const RISE = 0.3;                 // of the height the blobs rise on load
 
-  let shapes = [];
+  const VERTEX = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+  const FRAGMENT = `
+    precision highp float;
+    uniform vec2 uRes;
+    uniform vec3 uBlobs[8];
+    uniform vec3 uPointer;
+    uniform vec4 uCopy;
+    uniform float uFeather, uEdge, uDim, uGrow, uGrain;
+    const vec3 DEEP = vec3(0.027, 0.549, 0.012);   // #078C03
+    const vec3 NEON = vec3(0.416, 0.949, 0.400);   // #6AF266
+    const vec3 MINT = vec3(0.631, 1.0, 0.620);     // #A1FF9E
+    float hash(vec2 q) {
+      vec3 r = fract(vec3(q.xyx) * 0.1031);
+      r += dot(r, r.yzx + 33.33);
+      return fract((r.x + r.y) * r.z);
+    }
+    void main() {
+      vec2 p = vec2(gl_FragCoord.x, uRes.y - gl_FragCoord.y);
+      float f = 0.0;
+      for (int i = 0; i < 8; i++) {
+        vec2 d = p - uBlobs[i].xy;
+        f += uBlobs[i].z * uBlobs[i].z / (dot(d, d) + 1.0);
+      }
+      vec2 dp = p - uPointer.xy;
+      f -= uPointer.z / (dot(dp, dp) + 1.0);
+      // One grain per CSS pixel, fixed to the screen like film
+      float n = hash(floor(gl_FragCoord.xy / uGrain)) - 0.5;
+      // Grainy edge: the threshold itself is dithered so the rim breaks into specks
+      float body = smoothstep(0.94, 1.04, f + n * 0.12);
+      float halo = smoothstep(0.6, 0.98, f) * (1.0 - body) * step(0.3, n) * 0.2;
+      // Wax lit from below the glass: mint at the top of the screen to deep green at the bottom,
+      // darker toward each rim so the blobs read as round
+      float y = p.y / uRes.y;
+      vec3 base = mix(MINT, NEON, smoothstep(0.0, 0.45, y));
+      base = mix(base, DEEP, smoothstep(0.45, 1.0, y));
+      vec3 col = mix(base * 0.5, base, smoothstep(0.95, 2.6, f));
+      col *= 1.0 + n * 0.3;
+      vec2 q = max(max(uCopy.xy - p, p - uCopy.zw), 0.0);
+      float t = clamp(length(q) / uFeather, 0.0, 1.0);
+      float vis = mix(uDim, 1.0, t * t * (3.0 - 2.0 * t));
+      vis *= clamp(min(p.y, uRes.y - p.y) / uEdge, 0.0, 1.0);
+      float a = (body * 0.78 + halo) * vis * uGrow;
+      gl_FragColor = vec4(col * a, a);
+    }`;
+
+  function compile(type, source) {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    return shader;
+  }
+  const program = gl.createProgram();
+  gl.attachShader(program, compile(gl.VERTEX_SHADER, VERTEX));
+  gl.attachShader(program, compile(gl.FRAGMENT_SHADER, FRAGMENT));
+  gl.bindAttribLocation(program, 0, 'p');
+  gl.linkProgram(program);
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
+  gl.useProgram(program);
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+  gl.enableVertexAttribArray(0);
+  gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+  const u = {};
+  ['uRes', 'uBlobs', 'uPointer', 'uCopy', 'uFeather', 'uEdge', 'uDim', 'uGrow', 'uGrain']
+    .forEach(name => (u[name] = gl.getUniformLocation(program, name)));
+  const blobData = new Float32Array(24);
+
+  let blobs = [];
   let width = 0;
   let height = 0;
   let dpr = 1;
-  let textRects = [];
-  let buttonRects = [];
+  let copyRect = { left: 0, top: 0, right: 0, bottom: 0 };
   let born = 0;
   let last = 0;
   let rafId = 0;
   let onScreen = true;
-  let holding = false;              // asleep while a resting pointer keeps shapes pushed
+  let dent = 0;                     // how far the pointer's hollow has formed, 0..1
   const pointer = { clientX: 0, clientY: 0, active: false };
 
-  function random(seed) {
-    return () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-  }
-
-  // Line boxes of the copy (not the full-width blocks) and the buttons, relative to the canvas.
+  // Union of the copy's line boxes and the buttons, relative to the canvas.
   // The copy fades up 12px on load; measure where it ends up, not where it is mid-animation.
   function measure(rect) {
     const transform = getComputedStyle(copy).transform;
     const shift = transform && transform !== 'none' ? new DOMMatrixReadOnly(transform).m42 : 0;
-    const rel = r => ({ left: r.left - rect.left, right: r.right - rect.left, top: r.top - rect.top - shift, bottom: r.bottom - rect.top - shift });
     const range = document.createRange();
-    textRects = [];
+    const rects = [];
     intro.querySelectorAll('.tags, .intro-name, .intro-role').forEach(el => {
       range.selectNodeContents(el);
-      textRects.push(...[...range.getClientRects()].map(rel));
+      rects.push(...range.getClientRects());
     });
-    buttonRects = [...intro.querySelectorAll('.hero-actions .btn')].map(el => rel(el.getBoundingClientRect()));
-  }
-
-  function fade(floor, r, x, y) {
-    const dx = Math.max(r.left - x, 0, x - r.right);
-    const dy = Math.max(r.top - y, 0, y - r.bottom);
-    const t = Math.min(1, Math.hypot(dx, dy) / FEATHER);
-    return floor + (1 - floor) * t * t * (3 - 2 * t);
-  }
-
-  // How visible a shape may be at (x, y): dimmed near the copy and buttons and at the screen edges
-  function visibility(x, y) {
-    let v = Math.max(0, Math.min(1, y / EDGE, (height - y) / EDGE));
-    for (const r of textRects) v = Math.min(v, fade(TEXT_DIM, r, x, y));
-    for (const r of buttonRects) v = Math.min(v, fade(BUTTON_DIM, r, x, y));
-    return v;
+    intro.querySelectorAll('.hero-actions .btn').forEach(el => rects.push(el.getBoundingClientRect()));
+    if (!rects.length) return;
+    copyRect = {
+      left: Math.min(...rects.map(r => r.left)) - rect.left,
+      right: Math.max(...rects.map(r => r.right)) - rect.left,
+      top: Math.min(...rects.map(r => r.top)) - rect.top - shift,
+      bottom: Math.max(...rects.map(r => r.bottom)) - rect.top - shift,
+    };
   }
 
   function build() {
@@ -86,105 +147,49 @@
       canvas.width = w;
       canvas.height = h;
     }
+    gl.viewport(0, 0, w, h);
     measure(rect);
-
     const phone = width < 720;
-    const gap = Math.max(GAP[phone ? 1 : 0], Math.sqrt((width * height) / MAX_SHAPES));
-    // One column lines up with the left edge of the copy
-    const contentLeft = textRects.length ? Math.min(...textRects.map(r => r.left)) : gap / 2;
-    let x0 = ((contentLeft % gap) + gap) % gap;
-    if (x0 < SIZE) x0 += gap;  // no column cut in half by the screen edge
-    // One large, thin ring in the free space right of the copy as a counterweight to the name
-    const textRight = textRects.length ? Math.max(...textRects.map(r => r.right)) : width;
-    const free = width - textRight;
-    const ring = !phone && free > 280 && {
-      hx: textRight + free * 0.55,
-      hy: height * 0.62,
-      size: Math.min(220, free * 0.6),
-      kind: 'bigring',
-      weight: 0.5,
-      home: 1,
-      delay: 300,
-    };
-    const rand = random(20251);
-    const previous = shapes;
-    const next = [];
-    let row = 0;
-    for (let y = gap / 2; y < height; y += gap, row++) {
-      let col = 0;
-      for (let x = x0; x <= width - SIZE; x += gap, col++) {
-        // Leave the ring's stroke clear of grid shapes
-        if (ring && Math.abs(Math.hypot(x - ring.hx, y - ring.hy) - ring.size / 2) < SIZE) continue;
-        const home = visibility(x, y);
-        next.push({
-          hx: x,
-          hy: y,
-          size: SIZE,
-          // Inside the copy only dots, so nothing reads as punctuation
-          kind: home < 0.9 ? 'dot' : PATTERN[(col + row * 3) % PATTERN.length],
-          weight: 0.9 + rand() * 0.4,
-          home,
-          // Shapes come in as a wave from the right
-          delay: (Math.hypot(width - x, y - height / 2) / Math.hypot(width, height)) * 900,
-        });
-      }
-    }
-    if (ring) next.push(ring);
-    next.forEach((s, i) => {
+    const unit = Math.min(width, height);
+    const previous = blobs;
+    blobs = (phone ? PHONE_LAYOUT : LAYOUT).map(([fx, fy, fr], i) => {
       const old = previous[i];
-      s.x = old ? s.hx + old.x - old.hx : s.hx;
-      s.y = old ? s.hy + old.y - old.hy : s.hy;
-      s.vx = 0;
-      s.vy = 0;
-      s.fresh = !old && previous.length > 0;
+      const hx = fx * width;
+      const hy = fy * height;
+      return {
+        hx,
+        hy,
+        r: fr * unit,
+        x: old ? hx + old.x - old.hx : hx,
+        y: old ? hy + old.y - old.hy : born ? hy : hy + height * RISE,
+        vx: 0,
+        vy: 0,
+        weight: 1.25 - fr * 2,
+      };
     });
-    shapes = next;
   }
 
-  function draw(s, grow) {
-    if (grow <= 0) return;
-    const dx = s.x - s.hx;
-    const dy = s.y - s.hy;
-    const moved = Math.hypot(dx, dy);
-    const lit = Math.min(1, moved / 30);
-    const visible = moved > 2 ? visibility(s.x, s.y) : s.home;
-    const big = s.kind === 'bigring';
-    const from = big ? ACCENT : REST;
-    const c = from.map((v, i) => Math.round(v + (LIT[i] - v) * lit));
-    ctx.globalAlpha = Math.min(1, (big ? 0.35 : ALPHA) + GLOW * lit) * visible * grow;
-    ctx.strokeStyle = ctx.fillStyle = `rgb(${c[0]},${c[1]},${c[2]})`;
-    ctx.lineWidth = big ? 1 : LINE;
-    // Upright at rest; tilts while pushed and straightens as it springs back
-    const angle = Math.max(-0.8, Math.min(0.8, dx * 0.02));
-    ctx.setTransform(dpr, 0, 0, dpr, s.x * dpr, s.y * dpr);
-    ctx.rotate(angle);
-    const r = (s.size / 2) * grow;
-    ctx.beginPath();
-    switch (s.kind) {
-      case 'dot':
-        ctx.arc(0, 0, r * 0.4, 0, Math.PI * 2);
-        ctx.fill();
-        return;
-      case 'ring':
-      case 'bigring':
-        ctx.arc(0, 0, r * (big ? 1 : 0.85), 0, Math.PI * 2);
-        break;
-      case 'square':
-        ctx.rect(-r * 0.75, -r * 0.75, r * 1.5, r * 1.5);
-        break;
-      case 'triangle':
-        ctx.moveTo(0, -r);
-        ctx.lineTo(r * 0.9, r * 0.6);
-        ctx.lineTo(-r * 0.9, r * 0.6);
-        ctx.closePath();
-        break;
-      default: // cross
-        ctx.moveTo(-r, 0);
-        ctx.lineTo(r, 0);
-        ctx.moveTo(0, -r);
-        ctx.lineTo(0, r);
-    }
-    ctx.stroke();
+  function render(grow) {
+    blobData.fill(0);
+    blobs.forEach((b, i) => {
+      blobData[i * 3] = b.x * dpr;
+      blobData[i * 3 + 1] = b.y * dpr;
+      blobData[i * 3 + 2] = b.r * dpr;
+    });
+    const rect = canvas.getBoundingClientRect();
+    const hollow = DENT[coarsePointer.matches ? 1 : 0] * dpr * dent;
+    gl.uniform2f(u.uRes, canvas.width, canvas.height);
+    gl.uniform3fv(u.uBlobs, blobData);
+    gl.uniform3f(u.uPointer, (pointer.clientX - rect.left) * dpr, (pointer.clientY - rect.top) * dpr, hollow * hollow);
+    gl.uniform4f(u.uCopy, copyRect.left * dpr, copyRect.top * dpr, copyRect.right * dpr, copyRect.bottom * dpr);
+    gl.uniform1f(u.uFeather, FEATHER * dpr);
+    gl.uniform1f(u.uEdge, EDGE * dpr);
+    gl.uniform1f(u.uDim, TEXT_DIM);
+    gl.uniform1f(u.uGrow, grow);
+    gl.uniform1f(u.uGrain, dpr);
+    gl.clearColor(0, 0, 0, 0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
   }
 
   function frame(now) {
@@ -195,58 +200,46 @@
     const px = pointer.clientX - rect.left;
     const py = pointer.clientY - rect.top;
     const radius = RADIUS[coarsePointer.matches ? 1 : 0];
-    const near = pointer.active && py > -radius && py < rect.height + radius;
-    let moving = now - born < 2000;
-    let away = false;
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (const s of shapes) {
-      let ax = (s.hx - s.x) * SPRING;
-      let ay = (s.hy - s.y) * SPRING;
-      let held = false;
+    const near = pointer.active && px > -radius && px < rect.width + radius && py > -radius && py < rect.height + radius;
+    const target = near ? 1 : 0;
+    dent += (target - dent) * Math.min(1, 0.12 * k);
+    if (Math.abs(target - dent) < 0.002) dent = target;
+    let moving = now - born < 1600 || dent !== target;
+    for (const b of blobs) {
+      let ax = (b.hx - b.x) * SPRING;
+      let ay = (b.hy - b.y) * SPRING;
       if (near) {
-        const dist = Math.hypot(s.x - px, s.y - py);
-        held = dist < radius;
-        const hx = s.hx - px;
-        const hy = s.hy - py;
-        const toHome = Math.hypot(hx, hy);
-        if (held && toHome > 0.01) {
-          const push = (1 - dist / radius) ** 2 * PUSH * s.weight;
-          ax += (hx / toHome) * push;
-          ay += (hy / toHome) * push;
+        const dx = b.x - px;
+        const dy = b.y - py;
+        const dist = Math.hypot(dx, dy);
+        const reach = radius + b.r * 0.6;
+        if (dist < reach && dist > 0.01) {
+          const push = (1 - dist / reach) ** 2 * PUSH * b.weight;
+          ax += (dx / dist) * push;
+          ay += (dy / dist) * push;
         }
       }
-      s.vx = (s.vx + ax * k) * damping;
-      s.vy = (s.vy + ay * k) * damping;
-      s.x += s.vx * k;
-      s.y += s.vy * k;
-      if (Math.abs(s.vx) + Math.abs(s.vy) > 0.02) moving = true;
-      else if (Math.abs(s.x - s.hx) + Math.abs(s.y - s.hy) > 0.3) {
-        if (held) away = true;
-        else moving = true;
-      }
-      const t = s.fresh ? Infinity : now - born - s.delay;
-      draw(s, t >= 600 ? 1 : t <= 0 ? 0 : 1 - (1 - t / 600) ** 3);
+      b.vx = (b.vx + ax * k) * damping;
+      b.vy = (b.vy + ay * k) * damping;
+      b.x += b.vx * k;
+      b.y += b.vy * k;
+      if (Math.abs(b.vx) + Math.abs(b.vy) > 0.01) moving = true;
     }
-    if (moving) {
-      rafId = requestAnimationFrame(frame);
-      return;
-    }
-    // Settled: snap the stragglers home (drawn once more) and sleep until the pointer comes near again
-    if (!away) drawStill();
-    holding = away;
-    rafId = 0;
+    const t = (now - born) / 1400;
+    render(t >= 1 ? 1 : 1 - (1 - t) ** 3);
+    // Sleep once everything has settled, until the pointer comes near again
+    if (moving) rafId = requestAnimationFrame(frame);
+    else rafId = 0;
   }
 
   function drawStill() {
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    shapes.forEach(s => {
-      s.x = s.hx;
-      s.y = s.hy;
-      s.vx = s.vy = 0;
-      draw(s, 1);
+    blobs.forEach(b => {
+      b.x = b.hx;
+      b.y = b.hy;
+      b.vx = b.vy = 0;
     });
+    dent = 0;
+    render(1);
   }
 
   function start() {
@@ -269,20 +262,17 @@
   function rebuild() {
     build();
     if (reduceMotion.matches) drawStill();
-    else start();
-  }
-
-  function nearField() {
-    const rect = canvas.getBoundingClientRect();
-    const radius = RADIUS[coarsePointer.matches ? 1 : 0];
-    return pointer.clientY > rect.top - radius && pointer.clientY < rect.bottom + radius;
+    else {
+      render(1);
+      start();
+    }
   }
 
   function track(e) {
     pointer.clientX = e.clientX;
     pointer.clientY = e.clientY;
     pointer.active = true;
-    if (holding || nearField()) start();
+    start();
   }
 
   function release() {
@@ -300,7 +290,7 @@
 
   // Scrolling moves the field under a resting cursor without a pointermove
   window.addEventListener('scroll', () => {
-    if (pointer.active && (holding || nearField())) start();
+    if (pointer.active) start();
   }, { passive: true });
 
   // Build after the first paint (the observer fires once on observe), then again on size
